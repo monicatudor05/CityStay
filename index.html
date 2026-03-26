@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CityStay</title>
+    <meta name="author" content="Monica Tudor">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CityStay ofera apartamente moderne si confortabile pentru cazare pe un termen limitat. Rezervari rapide, preturi avantajoase si locatii centrale.">
+    <meta name="keywords"
+        content="rental, apartment, booking,cazare online,rezervari apartamente,inchirieri pe termen scurt, platforma inchirieri, proprietati de vacante,cautare cazare, filtru locatii,promotii,apartamente disponibile, rezultate filtrare, lista cazari, descriere apartament, facilitati">
+    <link rel="icon" type="image/svg+xml" href="./resurse/imagini/favicon/logo.svg" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./resurse/imagini/favicon/logo.svg" />
+    <link rel="shortcut icon" href="./resurse/imagini/favicon/logo.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./resurse/imagini/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="./resurse/imagini/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="resurse/css/general.css" />
+
+    <link rel="stylesheet" href="resurse/css/nav.css" />
+    <link rel="stylesheet" href="resurse/css/nav1000.css" media="screen and(max-width:1000px)" />
+    <link rel="stylesheet" href="resurse/css/nav700.css" media="screen and (max-width:700px)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="resurse/css/search_bar.css">
+    <link rel="stylesheet" href="resurse/css/table.css">
+
+</head>
+
+<body id="top">
+    <header>
+        <h1 class="logo">CityStay</h1>
+        <nav>
+            <label id="hamburger" for="ch-menu">
+                <img src="resurse/imagini/hamburger_menu.png" alt="Menu">
+            </label>
+            <input type="checkbox" id="ch-menu">
+            <ul class="menu">
+                <li>Home
+                    <ul class="submenu">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                    </ul>
+                </li>
+
+                <li>Become a member
+                    <ul class="submenu">
+                        <li><a href="#signin">Sign In</a></li>
+                        <li><a href="#register">Register</a></li>
+                    </ul>
+                </li>
+
+                <li>Popular Stays
+                    <ul class="submenu">
+                        <li><a href="#stays">Popular Stays</a></li>
+                        <li><a href="#top-destinations">Top Destinations</a></li>
+                    </ul>
+                </li>
+                <li><a href="#how-citystay-works">How It Works</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#faq">Faq</a></li>
+            </ul>
+
+        </nav>
+    </header>
+    <section class="search-wrapper">
+        <form class="search-bar">
+            <div class="search-item">
+                <label for="where">Where</label>
+                <input type="text" id="where" name="where" placeholder="Search destinations">
+            </div>
+
+            <div class="search-divider"></div>
+
+            <div class="search-item">
+                <label for="checkin">Check In</label>
+                <input type="date" id="checkin" name="checkin">
+            </div>
+
+            <div class="search-divider"></div>
+
+            <div class="search-item">
+                <label for="checkout">Check Out</label>
+                <input type="date" id="checkout" name="checkout">
+            </div>
+            <div class="search-divider"></div>
+
+            <div class="search-item-guests">
+                <label for="guests">Guests</label>
+                <input type="number" id="guests" name="guests" placeholder="Add Guests" min="1">
+            </div>
+
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </section>
+
+    <main>
+        <div id="grid-pagina">
+
+            <section id="about">
+                <hgroup>
+                    <h2>Welcome to CityStay</h2>
+                    <p class="subtitlu"><q>Travel more. Spend less.</q></p>
+                </hgroup>
+
+                <p class="intro"> CityStay
+                    helps you
+                    find cozy, well-located
+                    places with transparent prices and easy booking.
+                </p>
+
+                <div class="intro-oferte">
+                    <div><b>City apartments</b></div>
+                    <div><b>Budget studios</b></div>
+                    <div><b>Family stays</b></div>
+                    <div><b>Weekend getaway</b></div>
+                    <div><b>Business friendly</b></div>
+                </div>
+
+                <p class="anunt intro">No plans yet? No problem.
+                    Take a look at some inspiring stays and start dreaming about your next escape.
+                </p>
+
+                <div class="galerie">
+
+                    <img src="resurse/imagini/cozy_cabin.jpg" alt="Sweden">
+                    <img src="resurse/imagini/maroc.jpg" alt="Maroc">
+                    <img src="resurse/imagini/greece.jpg" alt="Greece">
+                    <img src="resurse/imagini/exotic_house.jpg" alt="Thailand">
+                    <img src="resurse/imagini/poland_house.jpg" alt="Poland">
+                    <img src="resurse/imagini/japan.jpg" alt="Japan">
+                    <img src="resurse/imagini/paris_tower.jpg" alt="Paris">
+
+
+
+                </div>
+                <p>Need travel inspiration? Visit
+                    <a href="https://www.lonelyplanet.com" target="_blank" rel="noopener">Lonely Planet</a>
+                </p>
+
+            </section>
+            <section id="stays-paris">
+                <h2>Popular Stays in Paris</h2>
+                <div class="stays-container-paris">
+                    <article class="stay-card">
+                        <img src="resurse/imagini/paris_stays/paris_stay.jpg" alt="Parisian Apartment">
+                        <h3>Parisian Apartment</h3>
+                        <p>Romantic • Central location • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/paris_stays/paris.jpg" alt="Romantic Stay">
+                        <h3>Romantic Stay</h3>
+                        <p>Amazing View • Romantic • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/paris_stays/family.jpg" alt="Family Stay">
+                        <h3>Family Stay</h3>
+                        <p>Spacious • Family friendly • 4 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/paris_stays/paris_stays_1.jpg" alt="Parisian Apartment">
+                        <h3>Parisian Apartment</h3>
+                        <p>Central location • Romantic • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/paris_stays/paris_stays_2.jpg" alt="Parisian Apartment">
+                        <h3>Modern Apartment</h3>
+                        <p>Central location • Modern design • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/paris_stays/paris_stays_4.jpg" alt="City View Apartment">
+                        <h3>City View Apartment</h3>
+                        <p>City view • Honeymoon • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/paris_stays/paris_stays_5.jpg" alt="Spacious Apartment">
+                        <h3>Spacious Apartment</h3>
+                        <p>Spacious • Family friendly • 5 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/paris_stays/paris_stays_6.jpg" alt="Romantic Apartment">
+                        <h3>Family Apartment</h3>
+                        <p>Spacious • Family friendly • 5 guests</p>
+                        <p class="rating">★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/paris_stays/paris_stays_7.jpg" alt="Parisian Apartment">
+                        <h3>Rustic Apartment</h3>
+                        <p>Rustic design • Romantic • 2 guests</p>
+                        <p class="rating">★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/paris_stays/paris_stays_8.jpg" alt="Parisian Apartment">
+                        <h3>Cozy Apartment - Charles de Gaulle</h3>
+                        <p>Cozy • Central location • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="stays-london">
+                <h2>Popular Stays in London</h2>
+                <div class="stays-container-london">
+                    <article class="stay-card">
+                        <img src="resurse/imagini/london_stays/london_stays_1.jpg" alt="Modern Studio">
+                        <h3>London Flat</h3>
+                        <p>Central location • Free Wi-fi • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+
+                    <article class="stay-card">
+                        <img src="resurse/imagini/london_stays/london_house.jpg" alt="Luxurious Apartment">
+                        <h3>Luxurious Apartment</h3>
+                        <p>Spacious • Luxurious • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+
+                    <article class="stay-card">
+                        <img src="resurse/imagini/london_stays/london_stays_2.jpg" alt="Perfect View">
+                        <h3>Perfect View Apartment</h3>
+                        <p>City view • Modern design • 4 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+
+                    <article class="stay-card">
+                        <img src="resurse/imagini/london_stays/london_stays_3.jpg" alt="Cozy Apartment">
+                        <h3>Cozy Apartment</h3>
+                        <p>Romantic • Quiet area • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/london_stays/london_stays_4.jpg" alt="Modern House">
+                        <h3>Modern House</h3>
+                        <p>Spacious • Quiet area • 6 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/london_stays/london_stays_5.jpg" alt="Family Stay">
+                        <h3>Party Stay</h3>
+                        <p>Spacious • Free Wi-fi • Party • 8 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/london_stays/london_stays_6.jpg" alt="Family Stay">
+                        <h3>Luxorious Penthouse</h3>
+                        <p>Spacious • Luxorious • 5 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/london_stays/london_stays_7.jpg" alt="London Apartment">
+                        <h3>Central Apartment - Picadilly Circus</h3>
+                        <p>Central location • Free Wi-fi • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/london_stays/london_stays_8.jpg" alt="London Apartment">
+                        <h3>Central Apartment - Big Ben</h3>
+                        <p>Central location • Free Wi-fi • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                </div>
+            </section>
+            <section id="stays-ny">
+                <h2>Popular Stays in New York</h2>
+                <div class="stays-container-ny">
+                    <article class="stay-card">
+                        <img src="resurse/imagini/ny_stays/ny_stays_1.jpg" alt="New York Apartment">
+                        <h3>Central Apartment - Times Square</h3>
+                        <p>Central location • Free Wi-fi • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/ny_stays/ny_stays_2.jpg" alt="New York Apartment">
+                        <h3>Central Apartment - Central Park</h3>
+                        <p>Central Park • Family Friendly • 4 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/ny_stays/ny_stays_3.jpg" alt="New York Apartment">
+                        <h3>Luxorious Couple Apartment</h3>
+                        <p>Luxorious • Romantic • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/ny_stays/ny_stays_4.jpg" alt="New York Apartment">
+                        <h3>Best View Apartment</h3>
+                        <p>City view • Modern design • 4 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/ny_stays/ny_stays_5.jpg" alt="New York Apartment">
+                        <h3>Minimalist Apartment</h3>
+                        <p>Minimalist design • Balcony • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/ny_stays/ny_stays_6.jpg" alt="New York Apartment">
+                        <h3>Penthouse New York</h3>
+                        <p>Spacious • Luxorious • 6 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/ny_stays/ny_stays_7.jpg" alt="New York Apartment">
+                        <h3>Cozy Apartment - Times Square</h3>
+                        <p>Cozy • Central location • 2 guests</p>
+                        <p class="rating">★★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/ny_stays/ny_stays_8.jpg" alt="New York Apartment">
+                        <h3>Spacious Apartment - Brooklyn</h3>
+                        <p>Spacious • Family friendly • 5 guests</p>
+                        <p class="rating">★★★★</p>
+                    </article>
+                    <article class="stay-card">
+                        <img src="resurse/imagini/ny_stays/ny_stays_9.jpg" alt="New York Apartment">
+                        <h3>Family Apartment - Brooklyn</h3>
+                        <p>Spacious • Family friendly • 5 guests</p>
+                        <p class="rating">★★★★</p>
+                    </article>
+                </div>
+            </section>
+
+
+            <section id="advantages">
+                <h2>Why choose CityStay</h2>
+
+                <article>
+                    <h3>Best Locations</h3>
+                    <p>Our stays are located in the most popular areas of the city. </p>
+                </article>
+
+                <article>
+                    <h3>Affordable Prices</h3>
+                    <p>Travel more and spend less with competitive prices.</p>
+                </article>
+
+                <article>
+                    <h3>Easy Booking</h3>
+                    <p>Book your stay in just a few clicks.</p>
+                </article>
+
+                <article>
+                    <h3>24/7 Support</h3>
+                    <p>Our members are at only one click distance</p>
+                </article>
+            </section>
+
+            <section id="top-destinations">
+                <h2>Top Destinations</h2>
+                <p class="intro">Discover the most popular areas to stay in the city.</p>
+                <p>
+                    Useful guide:
+                    <a href="https://en.wikipedia.org/wiki/New_York_City" target="_blank"
+                        rel="noopener">https://en.wikipedia.org/<wbr>wiki/<wbr>New_York_City</a>
+                </p>
+
+                <div class="destinations-container">
+                    <article class="destination-card">
+                        <figure>
+                            <picture>
+                                <source srcset="resurse/imagini/parisAdobe400.jpg" media="(max-width:400px)">
+                                <source srcset="resurse/imagini/parisAdobe800.jpg" media="(max-width:800px)">
+                                <source srcset="resurse/imagini/parisAdobe1200" media="(max-width:1200px)">
+                                <img src="resurse/imagini/parisDest.jpg" alt="Paris" title="Paris the city of romance.">
+                            </picture>
+                            <figcaption>Romantic streets, famous landmarks and amazing food.</figcaption>
+                        </figure>
+                        <h3>Paris</h3>
+                    </article>
+
+                    <article class="destination-card">
+                        <figure>
+                            <picture>
+                                <source srcset="resurse/imagini/london400.jpg" media="(max-width:400px)">
+                                <source srcset="resurse/imagini/london800.jpg" media="(max-width:800px)">
+                                <source srcset="resurse/imagini/london1200.jpg" media="(max-width:1200px)">
+                                <img src="resurse/imagini/london.jpg" alt="London"
+                                    title="Historic arhitecture and world-class museums.">
+
+                            </picture>
+                            <figcaption>Historic museums and world-class museums.</figcaption>
+                        </figure>
+                        <h3>London</h3>
+                    </article>
+
+                    <article class="destination-card">
+                        <figure>
+                            <picture>
+                                <source srcset="resurse/imagini/newyork400.jpg" media="(max-width:400px)">
+                                <source srcset="resurse/imagini/newyork800.jpg" media="(max-width:800px)">
+                                <source srcset="resurse/imagini/newyork1200.jpg" media="(max-width:1200px)">
+                                <img src="resurse/imagini/newyork.jpg" alt="New York"
+                                    title="The city that never sleeps.">
+                            </picture>
+                            <figcaption>New York is a vibrant city known for its iconic skyline, famous
+                                landmarks
+                                and endless
+                                nightclubs.</figcaption>
+                        </figure>
+                        <h3>New York</h3>
+                    </article>
+
+                    <article class="destination-card">
+                        <figure>
+                            <picture>
+                                <source srcset="resurse/imagini/maldives400.jpg" media="(max-width:400px)">
+                                <source srcset="resurse/imagini/maldives800.jpg" media="(max-width:800px)">
+                                <source srcset="resurse/imagini/maldives1200.jpg" media="(max-width:1200px)">
+                                <img src="resurse/imagini/maldives.jpg" alt="Maldives"
+                                    title="Tropical paradise with crystal clear water.">
+                            </picture>
+                            <figcaption> A tropical paradise with turquoise water and white beaches.
+                            </figcaption>
+                        </figure>
+                        <h3>Maldives</h3>
+                    </article>
+
+                    <article class="destination-card">
+                        <figure>
+                            <picture>
+                                <source srcset="resurse/imagini/top_dest/tokyoAdobe400.jpg" media="(max-width:400px)">
+                                <source srcset="resurse/imagini/top_dest/tokyoAdobe800.jpg" media="(max-width:800px)">
+                                <source srcset="resurse/imagini/top_dest/tokyoAdobe1200.jpg" media="(max-width:1200px)">
+                                <img src="resurse/imagini/top_dest/tokyoDest.jpg" alt="Tokyo"
+                                    title="A blend of tradition and modernity.">
+                            </picture>
+                            <figcaption>A blend of tradition and modernity, with vibrant culture and
+                                delicious food.</figcaption>
+                        </figure>
+                        <h3>Tokyo</h3>
+                    </article>
+                    <article class="destination-card">
+                        <figure>
+                            <picture>
+                                <source srcset="resurse/imagini/top_dest/nlAdobe400.jpg" media="(max-width:400px)">
+                                <source srcset="resurse/imagini/top_dest/nlAdobe800.jpg" media="(max-width:800px)">
+                                <source srcset="resurse/imagini/top_dest/nlAdobe1200.jpg" media="(max-width:1200px)">
+                                <img src="resurse/imagini/top_dest/nlDest.jpg" alt="Norway" title="Northern Lights">
+                            </picture>
+                            <figcaption>Experience the magical Northern Lights and stunning fjords.</figcaption>
+                        </figure>
+                        <h3>Norway</h3>
+                    </article>
+
+                    <article class="destination-card">
+                        <figure>
+                            <picture>
+                                <source srcset="resurse/imagini/top_dest/dubai400.jpg" media="(max-width:400px)">
+                                <source srcset="resurse/imagini/top_dest/dubai800.jpg" media="(max-width:800px)">
+                                <source srcset="resurse/imagini/top_dest/dubai1200.jpg" media="(max-width:1200px)">
+                                <img src="resurse/imagini/top_dest/dubaiDest.jpg" alt="Dubai"
+                                    title="A blend of opulence and culture.">
+                            </picture>
+                            <figcaption>A blend of opulence and culture, with iconic skyscrapers and
+                                vibrant souks.</figcaption>
+                        </figure>
+                        <h3>Dubai</h3>
+                    </article>
+
+                </div>
+            </section>
+
+            <section id="how-citystay-works">
+                <hgroup>
+                    <h2>How CityStay Works</h2>
+                    <p class="subtitle">Find and book your stay in just a few steps.</p>
+                </hgroup>
+
+                <div class="steps-container">
+
+                    <article class="search">
+                        <h3>1. Search</h3>
+                        <p>Enter your destination and dates to find the perfect place.</p>
+                    </article>
+
+                    <article class="choose">
+                        <h3>2. Choose</h3>
+                        <p>Browse listings and select the stay that fits your needs.</p>
+                    </article>
+
+                    <article class="book">
+                        <h3>3. Book</h3>
+                        <p>Reserve your stay quickly and securely.</p>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <section id="events">
+                <h2>UpComing Events</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>City</th>
+                            <th>Event</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Tickets Sold</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>New York</td>
+                            <td><b>Summer Street Festival</b></td>
+                            <td><time datetime="2026-07-20">July 20</time></td>
+                            <td><time datetime="2026-07-20">8:00 PM</time></td>
+                            <td>
+                                <meter min="0" max="100" value="70"></meter>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Maldives</td>
+                            <td><b>Beach Yoga</b>
+                            </td>
+                            <td><time datetime="2026-08-27">August 27</time></td>
+                            <td><time datetime="2026-08-27">10:00 AM</time></td>
+                            <td>
+                                <meter min="0" max="100" value="30"></meter>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Dubai</td>
+                            <td><b>Marina Night Show</b></td>
+                            <td><time datetime="2026-09-12">September 12</time></td>
+                            <td><time datetime="2026-09-12">10:00 PM</time></td>
+                            <td>
+                                <meter min="0" max="100" value="90"></meter>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </section>
+
+
+            <section id="faq">
+                <h2>Freqently Asked Questions</h2>
+
+                <details>
+                    <summary>Can I cancel my reservation?</summary>
+                    <p>Yes, many listings offer flexible cancellation policies. Please check the specific
+                        listing
+                        for details.</p>
+                </details>
+
+                <details>
+                    <summary>Are the hosts verified?</summary>
+                    <p>Yes, CityStay verifies hosts and listing to ensure a safe and reliable experience for
+                        travelers.</p>
+                </details>
+                <details>
+                    <summary>How do I book a stay on CityStay?</summary>
+                    <p>You can search for your destination, choose a listing you like, and complete a booking
+                        online
+                        in just a few steps.</p>
+                </details>
+
+            </section>
+        </div>
+
+
+    </main>
+    <footer>
+        <address>
+            <p><strong>Contact CityStay</strong></p>
+            Phone:
+            <a href="tel:+40123456789">+40 123 456 789</a><br>
+
+
+            Email:
+            <a href="mailto:contact@citystay.com">contact@citystay.com</a><br>
+
+
+            Chat with us:
+            <a href="https://wa.me/40123456789" target="_blank">WhatsApp Support</a>
+        </address>
+
+
+        <a href="#top">Back to top</a>
+        <p><small>&copy; CityStay.
+                Page created on
+                <time datetime="2026-03-04"> 4th of March 2026</time></small></p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+:root {
+    --culoare-airbnb: #DB1B42;
+    --culoare-airbnb-fundal: #FFFFFF;
+    --culoare-airbnb-lightgrey: #717171;
+    --culoare-airbnb-verylightgrey: #EBEBEB;
+    --culoare-airbnb-darkgrey: #222222;
+
+}
+
+#hamburger,
+#ch-menu {
+    display: none;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.menu {
+    display: flex;
+    gap: 25px;
+
+    background-color: rgb(227, 224, 224);
+    border-radius: 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(40, 39, 39);
+    font-weight: 500;
+}
+
+.menu li {
+    padding: 10px 15px;
+    border-radius: 20px;
+
+}
+
+.menu li:hover {
+    background-color: var(--culoare-airbnb-verylightgrey);
+}
+
+.submenu {
+    list-style: none;
+    display: none;
+    position: absolute;
+}
+
+.menu li:hover>.submenu {
+    display: block;
+}
+
+.submenu {
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    font-size: 45px;
+}

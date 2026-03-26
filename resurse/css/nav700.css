@@ -1,0 +1,39 @@
+#hamburger {
+    display: block;
+    cursor: pointer;
+
+}
+
+#hamburger>img {
+    height: 1em;
+    width: auto;
+}
+
+#ch-menu {
+    display: none;
+}
+
+nav .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#ch-menu:checked+.menu {
+    display: flex;
+}
+
+nav .menu>li {
+    border-bottom: 1px solid rgb(227, 224, 224);
+    padding: 10px 0;
+}
+
+.submenu {
+    display: none;
+
+}
+
+.menu>li:hover>.submenu {
+    display: block;
+}

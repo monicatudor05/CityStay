@@ -1,0 +1,257 @@
+:root {
+    --culoare-card: #e5ded3;
+    --culoare-fundal: #f5efef;
+    --culoare-header: #c2d7ef;
+    --culoare-footer: #dde7f2;
+    --culoare-accent: #d97757;
+    --culoare-border: #d8d8d8;
+    --culoare-text: #2b2b2b;
+
+
+    --culoare-airbnb-logo: #DB1B42;
+    --culoare-airbnb-fundal: #FFFFFF;
+    --culoare-airbnb-lightgrey: #717171;
+    --culoare-airbnb-verylightgrey: #EBEBEB;
+    --culoare-airbnb-darkgrey: #222222;
+
+
+    --spatiere-pagina: 80px;
+    --gap-grid: 20px;
+}
+
+header {
+    background-color: var(--culoare-airbnb-fundal);
+    padding: 20px;
+    border-bottom: 2px solid var(--culoare-airbnb-lightgrey);
+    font-family: "Open Sans", sans-serif;
+}
+
+header h1 {
+    color: var(--culoare-airbnb-logo);
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: var(--culoare-airbnb-verylightgrey);
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+
+
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Poppins", sans-serif;
+}
+
+@media(max-width:1024px) {
+    :root {
+        --spatiere-pagina: 40px;
+    }
+}
+
+@media(max-width:768px) {
+    :root {
+        --spatiere-pagina: 15px;
+    }
+}
+
+#grid-pagina {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "about about"
+        "stays-paris stays-paris"
+        "stays-london stays-london"
+        "stays-ny stays-ny"
+        "advantages how-citystay-works"
+        "top-destinations top-destinations"
+        "events faq";
+    gap: var(--gap-grid);
+}
+
+#grid-pagina>section {
+
+    background-color: var(--culoare-airbnb-verylightgrey);
+
+    padding: var(--spatiere-pagina);
+    border-bottom: 1px solid grey;
+
+
+}
+
+#about {
+    grid-area: about;
+}
+
+#stays-paris {
+    grid-area: stays-paris;
+}
+
+#stays-london {
+    grid-area: stays-london;
+}
+
+#stays-ny {
+    grid-area: stays-ny;
+}
+
+#advantages {
+    grid-area: advantages;
+}
+
+#top-destinations {
+    grid-area: top-destinations;
+}
+
+#how-citystay-work {
+    grid-area: how-citystay-works;
+}
+
+#events {
+    grid-area: events;
+}
+
+#faq {
+    grid-area: faq;
+}
+
+.galerie {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.galerie img {
+    width: 180px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.galerie img:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.stays-container-paris {
+    display: flex;
+    gap: var(--gap_grid);
+    overflow-x: auto;
+    padding: 10px;
+
+}
+
+.stay-card {
+    background-color: var(--culoare-card);
+    border-radius: 12px;
+    width: 180px;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.stay-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+
+}
+
+.stays-container-london {
+    display: flex;
+    gap: var(--gap_grid);
+    overflow-x: auto;
+    padding: 10px;
+
+}
+
+.stay-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+
+}
+
+.stay-card:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+
+}
+
+.stays-container-ny {
+    display: flex;
+    gap: var(--gap_grid);
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.stay-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+.stay-card:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.rating {
+    color: rgb(200, 182, 78);
+    font-size: 18px;
+    letter-spacing: 3px;
+
+}
+
+meter {
+    width: 100px;
+    height: 12px;
+
+}
+
+meter::-webkit-meter-optimum-value {
+    background: black;
+}
+
+meter::-webkit-meter-bar {
+    background: #dd57c7;
+}
+
+.destinations-container {
+    display: flex;
+    padding: 10px 0 20px 0;
+    gap: 20px;
+    overflow-x: auto;
+}
+
+.destination-card {
+    flex: 0 0 180px;
+
+}
+
+.destination-card figure {
+    margin: 0;
+}
+
+.destination-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.destination-card:hover img {
+    transform: scale(1.03);
+}
+
+.destination-card img {
+    transition: transform 0.3s ease;
+}

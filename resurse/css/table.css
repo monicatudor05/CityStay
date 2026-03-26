@@ -1,0 +1,57 @@
+:root {
+    --culoare-airbnb-logo: #DB1B42;
+}
+
+#events table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 999px;
+}
+
+#events thead th:first-child {
+    border-top-left-radius: 12px;
+}
+
+#events thead th:last-child {
+    border-top-right-radius: 12px;
+}
+
+#events tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+#events tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+#events tbody tr:nth-child(odd) {
+    background-color: #f7f7f7;
+}
+
+#events tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+#events thead {
+    background-color: var(--culoare-airbnb-logo);
+}
+
+#events thead th {
+    color: white;
+    padding: 15px;
+    text-align: center;
+
+}
+
+#events td {
+    padding: 15px;
+    text-align: center;
+}
+
+#events tbody tr:hover {
+    background-color: var(--culoare-airbnb-verylightgrey);
+}
+
+#events tbody td {
+    border-bottom: #eae9e9 1px solid;
+}
