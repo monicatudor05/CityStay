@@ -55,3 +55,16 @@
 #events tbody td {
     border-bottom: #eae9e9 1px solid;
 }
+
+.tabel {
+    max-height: 300px;
+    overflow-y: auto;
+    border: #DB1B42;
+    border-radius: 12px;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: var(--culoare-airbnb-logo);
+}
