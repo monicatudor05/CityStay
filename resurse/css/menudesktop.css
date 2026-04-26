@@ -1,0 +1,111 @@
+body {
+  --bg-menu: #F7F7F7;
+  --light-blue: #CDEFFE;
+  --gray: #B4B8B6;
+  --light-gray: #EEEDE9;
+  --text-color: black;
+  --text-hover: rgb(50, 45, 45);
+}
+
+nav .menu > li .submenu li::after, nav .menu > li .submenu li::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#ch-menu {
+  display: none;
+}
+
+#hamburger {
+  display: none;
+}
+
+nav {
+  background: var(--bg-menu);
+  font-family: "Open Sans", sans-serif;
+  height: 90px;
+  display: flex;
+  border-radius: 30px;
+  align-items: center;
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav .menu {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  list-style: none;
+}
+nav .menu > li {
+  position: relative;
+}
+nav .menu > li > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 16px;
+  padding: 12px 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  height: 90px;
+}
+nav .menu > li > a i {
+  font-size: 1rem;
+  color: black;
+}
+nav .menu > li > a:hover {
+  color: var(--text-hover);
+  font-size: 18px;
+}
+nav .menu > li .submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: var(--light-gray);
+  list-style: none;
+  border-radius: 0 0 10px 10px;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+nav .menu > li .submenu li {
+  position: relative;
+  width: 100%;
+}
+nav .menu > li .submenu li::before {
+  left: -18%;
+}
+nav .menu > li .submenu li::after {
+  right: 0;
+}
+nav .menu > li .submenu li:hover::before, nav .menu > li .submenu li:hover::after {
+  height: 100%;
+}
+nav .menu > li .submenu li a {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+  padding: 10px 15px;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+nav .menu > li .submenu li a:hover {
+  color: var(--text-hover);
+  padding-left: 24px;
+}
+nav .menu > li:hover > .submenu {
+  transform: scaleY(1);
+}/*# sourceMappingURL=menudesktop.css.map */

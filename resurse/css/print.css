@@ -1,0 +1,91 @@
+@media print {
+
+    .banner {
+        width: 70%;
+        margin: 0 auto;
+        border: 4px inset black;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        left: 15%;
+    }
+
+    img,
+    video,
+    iframe,
+    figure,
+    figcaption,
+    picture,
+    .galerie,
+    .stay-card,
+    .destination-card,
+    .stays-container-paris,
+    .stays-container-london,
+    .stays-container-ny,
+    .destinations-container,
+    #stays,
+    #top-destinations,
+    #link-top {
+        display: none;
+    }
+
+    #grid-pagina {
+        display: block;
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .menu {
+        display: block;
+        list-style: disc;
+        page-break-after: always;
+    }
+
+    .menu i {
+        display: none;
+    }
+
+    .menu>li {
+        margin-bottom: 10px;
+    }
+
+    .submenu {
+        display: none;
+    }
+
+    footer {
+        page-break-before: always;
+    }
+
+    body::after {
+        content: "Tudor\A Monica";
+        white-space: pre;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 4cm;
+        height: 1cm;
+        border: 3px solid black;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: bold;
+        opacity: 0.4;
+    }
+}
+
+@page :left {
+    margin-left: 3cm;
+    margin-right: 1cm;
+}
+
+@page :right {
+    margin-left: 1cm;
+    margin-right: 3cm;
+}

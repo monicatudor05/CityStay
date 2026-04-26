@@ -1,0 +1,42 @@
+body {
+    --bg-menu: #F7F7F7;
+    ;
+    --light-blue: #CDEFFE;
+    --gray: #B4B8B6;
+    --light-gray: #EEEDE9;
+    --text-color: black;
+    --text-hover: rgb(50, 45, 45);
+}
+
+$breakpoint-small: 600px;
+$breakpoint-medium: 900px;
+$nav-height: 90px;
+$gap: 8px;
+$fontsize-base: 16px;
+$fontsize-small: 13px;
+$transition-speed: 0.3s;
+$transition-speed-slow: 0.45s;
+$nav-item-padding: 12px 20px;
+$submenu-item-padding: 10px 15px;
+
+@media(max-width:$breakpoint-medium) {
+    nav {
+        .menu>li>a {
+            font-size: 0;
+
+            i {
+                font-size: 1.5rem;
+            }
+
+            &:hover {
+                font-size: 0;
+            }
+        }
+
+        .submenu li a {
+            font-size: $fontsize-small;
+        }
+
+
+    }
+}

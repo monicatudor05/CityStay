@@ -62,9 +62,9 @@ h3 {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "about about"
-        "stays-paris stays-paris"
-        "stays-london stays-london"
-        "stays-ny stays-ny"
+        "stays stays"
+        "stays stays"
+        "stays stays"
         "advantages how-citystay-works"
         "top-destinations top-destinations"
         "events faq";
@@ -85,16 +85,8 @@ h3 {
     grid-area: about;
 }
 
-#stays-paris {
-    grid-area: stays-paris;
-}
-
-#stays-london {
-    grid-area: stays-london;
-}
-
-#stays-ny {
-    grid-area: stays-ny;
+#stays {
+    grid-area: stays;
 }
 
 #advantages {
@@ -142,9 +134,13 @@ h3 {
 
 .stays-container-paris {
     display: flex;
-    gap: var(--gap_grid);
+    gap: var(--gap-grid);
     overflow-x: auto;
     padding: 10px;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer */
 
 }
 
@@ -167,9 +163,13 @@ h3 {
 
 .stays-container-london {
     display: flex;
-    gap: var(--gap_grid);
+    gap: var(--gap-grid);
     overflow-x: auto;
     padding: 10px;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer */
 
 }
 
@@ -190,9 +190,13 @@ h3 {
 
 .stays-container-ny {
     display: flex;
-    gap: var(--gap_grid);
+    gap: var(--gap-grid);
     overflow-x: auto;
     padding: 10px;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer */
 }
 
 .stay-card img {
@@ -213,6 +217,13 @@ h3 {
     font-size: 18px;
     letter-spacing: 3px;
 
+}
+
+.stays-container-paris::-webkit-scrollbar,
+.stays-container-london::-webkit-scrollbar,
+.stays-container-ny::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
 }
 
 meter {
@@ -327,18 +338,12 @@ footer {
     position: fixed;
     bottom: 25px;
     right: 25px;
-
     width: 60px;
     height: 60px;
     border-radius: 50%;
-
     display: block;
     text-decoration: none;
-
-
-
     opacity: 0.6;
-
     transition: opacity 0.4s ease;
     z-index: 1000;
 }

@@ -1,0 +1,79 @@
+$breakpoint-small: 600px;
+$fontsize-small: 13px;
+$gap: 8px;
+$transition-speed-slow: 0.45s;
+
+
+@media (max-width: $breakpoint-small) {
+
+    #hamburger {
+        display: block;
+        cursor: pointer;
+
+        img {
+            width: 30px;
+            height: 30px;
+            display: block;
+        }
+    }
+
+    nav {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 12px 20px;
+
+        .menu {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            gap: 0;
+            margin-top: 8px;
+            border-top: 1px solid var(--gray);
+
+            >li {
+                width: 100%;
+
+                >a {
+                    height: auto;
+                    padding: 10px 16px;
+                    font-size: $fontsize-small;
+                    display: flex;
+                    align-items: center;
+                    gap: $gap;
+
+                    &:hover {
+                        font-size: $fontsize-small;
+                    }
+                }
+
+                .submenu {
+                    position: static;
+                    transform: scaleX(0);
+                    transform-origin: left center;
+                    transition: transform $transition-speed-slow cubic-bezier(0.4, 0, 0.2, 1);
+                    width: 0;
+                    height: 0;
+                    overflow: hidden;
+                    margin-left: 16px;
+                    border-left: 2px solid var(--gray);
+
+                    li a {
+                        padding: 8px 12px;
+                        font-size: $fontsize-small;
+                        white-space: nowrap;
+                    }
+                }
+
+                &:hover>.submenu {
+                    transform: scaleX(1);
+                    width: auto;
+                    height: auto;
+                }
+            }
+        }
+
+        #ch-menu:checked~.menu {
+            display: flex;
+        }
+    }
+}

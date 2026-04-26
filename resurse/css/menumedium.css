@@ -1,0 +1,23 @@
+body {
+  --bg-menu: #F7F7F7;
+  --light-blue: #CDEFFE;
+  --gray: #B4B8B6;
+  --light-gray: #EEEDE9;
+  --text-color: black;
+  --text-hover: rgb(50, 45, 45);
+}
+
+@media (max-width: 900px) {
+  nav .menu > li > a {
+    font-size: 0;
+  }
+  nav .menu > li > a i {
+    font-size: 1.5rem;
+  }
+  nav .menu > li > a:hover {
+    font-size: 0;
+  }
+  nav .submenu li a {
+    font-size: 13px;
+  }
+}/*# sourceMappingURL=menumedium.css.map */
