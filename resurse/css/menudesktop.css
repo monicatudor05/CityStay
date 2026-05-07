@@ -1,5 +1,5 @@
 body {
-  --bg-menu: #F7F7F7;
+  --bg-menu: pink;
   --light-blue: #CDEFFE;
   --gray: #B4B8B6;
   --light-gray: #EEEDE9;
@@ -7,7 +7,8 @@ body {
   --text-hover: rgb(50, 45, 45);
 }
 
-nav .menu > li .submenu li::after, nav .menu > li .submenu li::before {
+nav .menu>li .submenu li::after,
+nav .menu>li .submenu li::before {
   content: "";
   display: block;
   position: absolute;
@@ -29,6 +30,7 @@ nav .menu > li .submenu li::after, nav .menu > li .submenu li::before {
 nav {
   background: var(--bg-menu);
   font-family: "Open Sans", sans-serif;
+  font-weight: 900;
   height: 90px;
   display: flex;
   border-radius: 30px;
@@ -38,16 +40,19 @@ nav {
   top: 0;
   z-index: 1000;
 }
+
 nav .menu {
   display: flex;
   gap: 8px;
   align-items: center;
   list-style: none;
 }
-nav .menu > li {
+
+nav .menu>li {
   position: relative;
 }
-nav .menu > li > a {
+
+nav .menu>li>a {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -59,15 +64,18 @@ nav .menu > li > a {
   white-space: nowrap;
   height: 90px;
 }
-nav .menu > li > a i {
+
+nav .menu>li>a i {
   font-size: 1rem;
   color: black;
 }
-nav .menu > li > a:hover {
+
+nav .menu>li>a:hover {
   color: var(--text-hover);
   font-size: 18px;
 }
-nav .menu > li .submenu {
+
+nav .menu>li .submenu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -79,20 +87,26 @@ nav .menu > li .submenu {
   transform-origin: top center;
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
-nav .menu > li .submenu li {
+
+nav .menu>li .submenu li {
   position: relative;
   width: 100%;
 }
-nav .menu > li .submenu li::before {
+
+nav .menu>li .submenu li::before {
   left: -18%;
 }
-nav .menu > li .submenu li::after {
+
+nav .menu>li .submenu li::after {
   right: 0;
 }
-nav .menu > li .submenu li:hover::before, nav .menu > li .submenu li:hover::after {
+
+nav .menu>li .submenu li:hover::before,
+nav .menu>li .submenu li:hover::after {
   height: 100%;
 }
-nav .menu > li .submenu li a {
+
+nav .menu>li .submenu li a {
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -102,10 +116,14 @@ nav .menu > li .submenu li a {
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-nav .menu > li .submenu li a:hover {
+
+nav .menu>li .submenu li a:hover {
   color: var(--text-hover);
   padding-left: 24px;
 }
-nav .menu > li:hover > .submenu {
+
+nav .menu>li:hover>.submenu {
   transform: scaleY(1);
-}/*# sourceMappingURL=menudesktop.css.map */
+}
+
+/*# sourceMappingURL=menudesktop.css.map */

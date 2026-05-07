@@ -1,0 +1,50 @@
+:root {
+    --color-visited: #a78bfa;
+    --color-external-symbol: #ff6b6b;
+    --color-external-hover: #fbbf24;
+    --color-spot: rgba(255, 107, 107, 0.35);
+}
+
+a:visited {
+    color: var(--color-visited);
+}
+
+a[href^="http"]::before {
+    content: "\2BB3";
+    font-size: 1.5em;
+    color: var(--color-external-symbol);
+    margin-right: 4px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+
+a[href^="http"]:hover::before {
+    color: var(--color-external-hover);
+}
+
+main a {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    background-image: radial-gradient(circle,
+            var(--color-spot) 0%,
+            var(--color-spot) 40%,
+            transparent 80%,
+            transparent 100%);
+    background-position: center;
+    background-size: 0 0;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s ease;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+main a:hover {
+    background-size: 100% 100%;
+}
+
+a:active {
+    outline: 2px solid var(--color-external-symbol);
+    border-radius: 4px;
+}

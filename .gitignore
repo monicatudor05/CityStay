@@ -1,0 +1,6 @@
+node_modules/
+logs/
+backup/
+fisiere_uploadate/
+temp/
+.DS_Store

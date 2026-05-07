@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="description"
+        content="CityStay — find your perfect place in the city. Browse thousands of verified stays across 50+ cities worldwide. Easy booking, affordable prices, unforgettable experiences.">
+    <meta name="keywords" content="booking, hotel, holiday, rent, worldwide">
+    <title>CityStay - eroare</title>
+    <link rel="stylesheet" type="text/css" href="/resurse/css/eroare.css" <%- include("../fragmente/head.ejs"); %
+        </head>
+
+<body>
+
+    <%- include("../fragmente/header.ejs"); %>
+
+        <main>
+            <div id="err-coloane">
+                <div id="err-imag">
+                    <img src="<%- locals.imagine %>" />
+                </div>
+                <section>
+                    <h2><%- locals.titlu %></h2>
+                    <p><%- locals.text %></p>
+                </section>
+            </div>
+        </main>
+
+        <%- include("../fragmente/footer.ejs"); %>
+
+
+</body>
+
+</html>

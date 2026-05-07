@@ -1,0 +1,283 @@
+.plane {
+    position: fixed;
+    width: 80px;
+    height: auto;
+    bottom: -50px;
+    left: -50px;
+    z-index: 9999;
+    pointer-events: none;
+
+    animation: flyPlane 7s linear 1 forwards;
+}
+
+@keyframes flyPlane {
+    0% {
+        top: 110vh;
+        left: -50px;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        top: -100px;
+        left: 110vw;
+        opacity: 0;
+    }
+}
+
+
+.intro-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    background: #0f1c2e;
+}
+
+
+
+.despre-intro {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 4 rem;
+    overflow: hidden;
+
+}
+
+/* .despre-intro-bg {
+    position: absolute;
+    inset: 0;
+    animation: slowZoom 12 ease-out forwards;
+} */
+
+.despre-intro-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+}
+
+.despre-intro-tag {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.despre-intro-content h1 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+}
+
+.despre-intro-bottom h1 span {
+    color: #ff6b6b;
+
+}
+
+.despre-intro-content p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 450px;
+}
+
+.btn-cta {
+    display: inline-block;
+    background: #ff6b6b;
+    color: #fff;
+    padding: 0.9rem 2rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+
+}
+
+.btn-cta:hover {
+    background: #e05555;
+    transform: translateY(-2px);
+}
+
+@keyframes slowZoom {
+    from {
+        transform: scale(1.08);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.flip-cards {
+    display: flex;
+    gap: 1.5rem;
+    padding: 4rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.flip-card {
+    width: 220px;
+    height: 160px;
+    perspective: 1000px;
+    cursor: pointer;
+
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    text-align: center;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease;
+}
+
+.flip-card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+.flip-card:hover {
+    transform: rotateY(180deg);
+}
+
+.flip-front {
+    background: #0f1c2e;
+    border: 1px solid #1e3a5f;
+}
+
+.flip-back {
+    background: #ff6b6b;
+    transform: rotateY(180deg);
+}
+
+.flip-num {
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff6b6b;
+    line-height: 1;
+}
+
+.flip-label {
+    font-size: 0.8rem;
+    color: #7a9bbf;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.5rem;
+}
+
+.flip-back p {
+    color: #fff;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* hover PHOTOS  GALLERY */
+
+.apt-slider-section {
+    display: flex;
+    background: #0a1520;
+    padding: 4rem 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.apt-slider-section h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.apt-slider-section h2 span {
+    color: #ff6b6b;
+}
+
+.apt-card {
+    position: relative;
+    width: 500px;
+    height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.apt-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+
+}
+
+.apt-card img.active {
+    opacity: 1;
+}
+
+.apt-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* right: 0; */
+    padding: 2rem;
+    z-index: 2;
+    background-color: #0f1c2e;
+    border-radius: 100px;
+
+}
+
+.apt-info h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.apt-info p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+}
+
+.apt-info .rating {
+    color: #f5c842;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    letter-spacing: 2px;
+}
+
+.apt-hint {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.1em;
+}

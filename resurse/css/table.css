@@ -46,10 +46,12 @@
 #events td {
     padding: 15px;
     text-align: center;
+    color: grey;
 }
 
 #events tbody tr:hover {
     background-color: var(--culoare-airbnb-verylightgrey);
+
 }
 
 #events tbody td {

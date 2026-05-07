@@ -1,0 +1,23 @@
+WEBVTT
+
+STYLE
+::cue {
+  background: transparent;
+  color: white;
+  text-shadow: 1px 1px 3px black, -1px -1px 3px black;
+}
+
+00:00:01.000 --> 00:00:05.000
+Welcome to CityStay.
+
+00:00:06.000 --> 00:00:10.000 line:10%
+With CityStay you can stay everywhere.
+
+00:00:06.000 --> 00:00:10.000 line:90%
+Your city, your choice.
+
+00:00:11.000 --> 00:00:16.000
+Find your perfect place in the city.
+
+00:00:17.000 --> 00:00:22.000
+CityStay — at home everywhere.

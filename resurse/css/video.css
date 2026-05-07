@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0f1c2e;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 100vh;
+    display: flex;
+}
+
+video {
+    width: 80%;
+    min-width: 300px;
+    max-width: 900px;
+    border-radius: 16px;
+    display: block;
+
+}
+
+p {
+    color: #7e899a;
+    font-size: 18px;
+    margin-top: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

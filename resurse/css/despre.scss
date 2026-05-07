@@ -1,0 +1,11 @@
+.plane {
+  position: fixed;
+  font-size: 2rem;
+  top: -50px;
+  left: -50px;
+  z-index: 9999;
+  animation: flyPlane 6s linear infinite;
+  pointer-events: none;
+}
+
+/*# sourceMappingURL=despre.scss.map */

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CityStay</title>
+    <meta name="description"
+        content="CityStay ofera apartamente moderne si confortabile pentru cazare pe un termen limitat. Rezervari rapide, preturi avantajoase si locatii centrale.">
+    <meta name="keywords"
+        content="rental, apartment, booking,cazare online,rezervari apartamente,inchirieri pe termen scurt, platforma inchirieri, proprietati de vacante,cautare cazare, filtru locatii,promotii,apartamente disponibile, rezultate filtrare, lista cazari, descriere apartament, facilitati">
+
+    <%- include('../fragmente/head.ejs') %>
+</head>
+
+
+
+<body id="top">
+    <%- include('../fragmente/header.ejs') %>
+
+
+        <main>
+            <img class="plane" src="/resurse/imagini/plane2.png" alt="plane">
+
+            <div class="intro-split">
+                <section class="despre-intro">
+
+                    <div class="despre-intro-content">
+                        <span class="despre-intro-tag">About CityStay</span>
+                        <h1>We're changing the way <span>people find home.</span></h1>
+                        <p>CityStay connects travelers with beautiful, verified stays across 50+ cities worldwide</p>
+                        <a href="/index#stays" class="btn-cta">Explore Stays</a>
+                    </div>
+                </section>
+
+                <div class="apt-slider-section">
+                    <h2>Our <span>Best Stays</span></h2>
+
+                    <div class="apt-card" id="aptCard">
+                        <img src="/resurse/imagini/parisDest.jpg" alt="Parisian Apartment" class="active">
+
+                        <img src="/resurse/imagini/aurora_boreala.jpg" alt="Aurora Boreala Apartment">
+
+                        <img src="/resurse/imagini/japan.jpg" alt="Japanese Apartment">
+
+                        <img src="/resurse/imagini/maldives.jpg" alt="Maldives">
+
+                        <img src="/resurse/imagini/cozy_cabin.jpg" alt="Cozy cabin">
+
+                        <img src="/resurse/imagini/newyork_stay.jpg" alt="New York Apartment">
+
+                        <div class="apt-info" id="aptInfo">
+                            <h3 id="aptName">Parisian Apartment</h3>
+                            <p id="aptLocation">Paris • 2 guests</p>
+                            <div class="rating" id="aptRating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="apt-hint">hover to explore</p>
+
+                </div>
+
+            </div>
+
+            <div class="flip-cards">
+
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <span class="flip-num">10K+</span>
+                        <span class="flip-label">Stays Available</span>
+                    </div>
+                    <div class="flip-back">
+                        <p>From cozy studios to luxury penthouses across the world.</p>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <span class="flip-num">50+</span>
+                        <span class="flip-label">Cities Worldwide</span>
+                    </div>
+                    <div class="flip-back">
+                        <p>London, New York, Paris, Tokyo and more.</p>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <div class="flip-num">500K+</div>
+                        <div class="flip-label">Happy Guests</div>
+                    </div>
+                    <div class="flip-back">
+                        <p>Half a million travelers found their perfect stay with CityStay.</p>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <div class="flip-num">4.9★</div>
+                        <div class="flip-label">Average Rating</div>
+                    </div>
+                    <div class="flip-back">
+                        <p>Our guests love us. See why thousands come back every trip.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <%- include('../fragmente/footer.ejs'); %>
+
+            <a href="#" id="link-top" title="Go back to the top of the page">
+                <span id="arrow">&#8593;</span>
+            </a>
+
+            <script src="/resurse/js/aptSlider.js"></script>
+</body>
+
+</html>
