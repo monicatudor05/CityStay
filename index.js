@@ -26,7 +26,104 @@ function initErori() {
     }
 
 }
+
+
+function verificareErori() {
+    const caleJson = path.join(__dirname, "resurse/json/erori.json");
+    //bonus 1
+    if (!fs.existsSync(caleJson)) {
+        console.error(`Fisierul erori.json nu exista!`);
+        process.exit();
+    }
+
+    //bonus 2
+    const continutString = fs.readFileSync(caleJson).toString("utf-8");
+    let erori = JSON.parse(continutString);
+    if (!erori.info_erori) {
+        console.error(`Proprietatea 'info_erori' nu exista in fisierul erori.json!`);
+    }
+
+    if (!erori.eroare_default) {
+        console.error(`Proprietatea 'eroare_default'nu exista in fisierul erori.json!`);
+    }
+
+    if (!erori.cale_baza) {
+        console.error(`Proprietatea 'cale_baza' nu exista in fisierul erori.json!`);
+    }
+
+    //bonus 3
+
+    if (!erori.eroare_default.titlu) {
+        console.error(`Proprietatea 'titlu' nu exista in obiectul 'eroare_default' din fisierul erori.json!`);
+    }
+
+    if (!erori.eroare_default.text) {
+        console.error(`Proprietatea 'text' nu exista in obiectul 'eroare_default' din fisierul erori.json!`);
+    }
+
+    if (!erori.eroare_default.imagine) {
+        console.error(`Proprietatea 'imagine' nu exista in obiectul 'eroare_default' din fisierul erori.json!`);
+    }
+
+    //bonus 4
+    const caleFolder = path.join(__dirname, erori.cale_baza);
+
+    if (!fs.existsSync(caleFolder)) {
+        console.error(`Nu este specificat nicun folder in cale_baza`);
+
+    }
+
+    //bonus 5
+    const caleImgDefault = path.join(__dirname, erori.cale_baza, erori.eroare_default.imagine);
+    if (!fs.existsSync(caleImgDefault)) {
+        console.error(`Imaginea pentru eroare_default nu exita`);
+    }
+
+    for (let eroare of erori.info_erori) {
+        if (eroare.imagine) {
+            const caleImg = path.join(__dirname, erori.cale_baza, eroare.imagine);
+            if (!fs.existsSync(caleImg)) {
+                console.error(`Imaginea pentru eroarea '${eroare.identificator}' nu exista!`)
+            }
+        }
+    }
+
+    //bonus 6 - fara duplicate
+
+    const linii = continutString.split('\n');
+    const proprietatiVazute = [];
+    for (let i = 0; i < linii.length; i++) {
+        const match = linii[i].match(/^\s*"(\w+)"\s*:/);
+        if (match) {
+            const prop = match[1];
+
+            if (proprietatiVazute.includes(prop)) {
+                console.error(`Proprietatea '${prop}' este duplicata!`);
+            }
+            proprietatiVazute.push(prop);
+        }
+
+    }
+
+    //bonus 7 
+
+    for (let i = 0; i < erori.info_erori.length; i++) {
+        const duplicates = erori.info_erori.filter(e => e.identificator === erori.info_erori[i].identificator);
+
+        if (duplicates.length > 1) {
+            duplicates.forEach(d => {
+                const { identificator, ...restProps } = d;
+                console.error(`Eroarea cu identificatorul '${identificator}' este duplicata! Restul proprietatilor sunt: `, restProps);
+            });
+        }
+
+    }
+}
+
+verificareErori();
 initErori();
+
+
 
 
 function afisareEroare(res, identificator, titlu, text, imagine) {

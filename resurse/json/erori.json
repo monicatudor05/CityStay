@@ -1,52 +1,52 @@
 {
     "cale_baza": "/resurse/imagini/erori",
     "eroare_default": {
-        "titlu": "Eroare !!!",
-        "text": "A survenit o eroare.",
-        "imagine": "403_citystay.png"
+        "titlu": "Error !!!",
+        "text": "An unexpected error has occurred. Please try again later.",
+        "imagine": "404_citystay.png"
     },
     "info_erori": [
         {
             "identificator": 404,
             "status": true,
-            "titlu": "404 - N-am, bre!",
-            "text": "Nu-i pe serverul ăsta, sorry, caută în altă parte!",
+            "titlu": "404 - Lost in the city?",
+            "text": "Looks like this address doesn't exist on our map. Let's get you back on track!",
             "imagine": "404_citystay.png"
         },
         {
             "identificator": 403,
             "status": true,
-            "titlu": "403 - Da, tu ce cauți aici?!!",
-            "text": "Ai greșit ruta. Stânga-împrejur și pa!",
+            "titlu": "403 - Private property",
+            "text": "You don't have permiion to enter this are. Please step back!",
             "imagine": "403_citystay.png"
         },
         {
             "identificator": 400,
             "status": true,
-            "titlu": "400 - bad request",
-            "text": "Cerere gresita",
+            "titlu": "400 - Something's broken.",
+            "text": "We couldn't understand yor request. Try again or contact support.",
             "imagine": "400_citystay.png"
         },
         {
             "identificator": 1,
             "status": false,
-            "titlu": "Site în lucru",
-            "text": "Muncim, muncim!",
-            "imagine": "400_citystay.png"
+            "titlu": "We're builing something great!",
+            "text": "CityStay is under construction. Come back soon, it will be worth to wait!",
+            "imagine": "001_error.png"
         },
         {
             "identificator": 2,
             "status": false,
-            "titlu": "Eroare baza date",
-            "text": "Reveniti mai tarziu!",
-            "imagine": "400_citystay.png"
+            "titlu": "Our server needs a nap.",
+            "text": "We're experiencing a data base issue. Grab a coffee and try again in a few minutes.",
+            "imagine": "002_error.png"
         },
         {
             "identificator": 3,
             "status": false,
-            "titlu": "Date gresit",
-            "text": "Verificati datele",
-            "imagine": "400_citystay.png"
+            "titlu": "Double check your details",
+            "text": "Something doesn't look right with the data you entered. Please review and try again.",
+            "imagine": "003_error.png"
         }
     ]
 }
