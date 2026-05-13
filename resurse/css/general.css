@@ -17,7 +17,7 @@
     --gap-grid: 20px;
 }
 
-.hero {
+/* .hero {
     position: relative;
     width: 100%;
     height: 700px;
@@ -25,10 +25,11 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-}
+} */
 
 
 header {
+    background-image: url('/resurse/imagini/bg_removebg.png');
     background-color: var(--culoare-airbnb-fundal);
     padding: 20px;
     border-bottom: 2px solid var(--culoare-airbnb-lightgrey);
@@ -41,7 +42,13 @@ header h1 {
 }
 
 body {
+    /* background-image: url('/resurse/imagini/bg_removebg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center bottom;
+    background-size: cover; */
     background-color: var(--culoare-airbnb-verylightgrey);
+
     margin: 0;
     font-family: "Open Sans", sans-serif;
     color: #c8d8e8;
@@ -84,8 +91,8 @@ h3 {
 
 #grid-pagina>section {
 
-    background-color: var(--culoare-airbnb-verylightgrey);
-
+    /* background-color: var(--culoare-airbnb-verylightgrey); */
+    background-color: rgba(15, 28, 46, 0.85);
     padding: var(--spatiere-pagina);
     border-bottom: 1px solid grey;
 
@@ -124,24 +131,138 @@ h3 {
     margin-top: 5px;
 }
 
-.galerie {
+/* .galerie {
     display: flex;
     gap: 20px;
     overflow-x: auto;
     padding: 20px;
 }
 
+.galerie figure {
+    position: relative;
+    margin: 0;
+    /* overflow: hidden; 
+    border-radius: 10px;
+}
+
 .galerie img {
-    width: 180px;
-    height: 300px;
+    width: 150px;
+    height: 270px;
     object-fit: cover;
-    border-radius: 12px;
+    display: block;
+    border-radius: 10px;
+}
+
+.galerie figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 0 0 12px 12px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: "Open Sans", sans-serif;
+} */
+
+/* .galerie figure:hover img {
+    transform: scale(1.05);
+    transition: 0.3s;
+} */
+
+/*ecran mare*/
+.galerie {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px 40px;
+}
+
+
+
+.galerie figure {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+}
+
+.galerie img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+
+.galerie img {
+    transition: all 0.5s ease;
 }
 
 .galerie img:hover {
-    transform: scale(1.05);
-    transition: 0.3s;
+    transform: rotate(360deg) scale(1.5);
+    border-radius: 30px;
 }
+
+.galerie figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+    color: white;
+    text-align: center;
+    padding: 20px 8px 8px;
+    border-radius: 0 0 10px 10px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+    .galerie {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .galerie figure:nth-child(3n) {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .galerie {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 10px;
+        padding: 10px 60px;
+    }
+
+    .galerie figure {
+        width: 45%;
+        margin: 0;
+    }
+
+    /* .galerie figure:nth-child(3n) {
+        grid-column: span 1;
+        width: 45%;
+        margin: 0;
+    } */
+
+    .galerie img {
+        width: 100%;
+        height: 380px;
+    }
+}
+
 
 .stays-container-paris {
     display: flex;
@@ -161,6 +282,7 @@ h3 {
     width: 180px;
     padding: 10px;
     flex-shrink: 0;
+
 }
 
 .stay-card img {
@@ -171,6 +293,18 @@ h3 {
     display: block;
 
 }
+
+.stay-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 1000;
+}
+
+.stay-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 500;
+}
+
 
 .stays-container-london {
     display: flex;

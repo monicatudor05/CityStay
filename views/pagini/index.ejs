@@ -16,7 +16,7 @@
 <body id="top">
 
     <%- include('../fragmente/header.ejs') %>
-
+        <div class="hero"></div>
 
 
         <section class="search-wrapper">
@@ -49,48 +49,59 @@
                 <button type="submit" class="search-button">Search</button>
             </form>
         </section>
-        <div class="hero"></div>
+        <!-- <div class="hero"></div> -->
 
         <main>
             <div id="grid-pagina">
 
                 <section id="about">
                     <hgroup>
-                        <h2>Welcome to CityStay</h2>
-                        <p class="subtitlu"><q>Travel more. Spend less.</q></p>
+                        <h2 class="fs-2">The city <span class="text-primary">awaits.</span></h2>
+                        <p class="subtitlu fs-4 "><q>Travel more. Spend less.</q></p>
+
                     </hgroup>
 
-                    <p class="intro"> CityStay
+                    <p class="intro fs-5"> CityStay
                         helps you
                         find cozy, well-located
                         places with transparent prices and easy booking.
                     </p>
-                    <p>IP:
+                    <!-- <p>IP:
                         <%- locals.ip %>
-                    </p>
-                    <div class="intro-oferte">
+                    </p> -->
+                    <div class="intro-oferte text-primary">
                         <div><b>City apartments</b></div>
                         <div><b>Budget studios</b></div>
                         <div><b>Family stays</b></div>
                         <div><b>Weekend getaway</b></div>
                         <div><b>Business friendly</b></div>
                     </div>
+                    <!-- buton bootstrap -->
+                    <!-- <p><button class="btn btn-primary">Button Bootstrap</button></p> -->
+                    <!-- buton bootstrap -->
+                    <a href="/despre" class="btn btn-primary">Learn More</a>
+                    <div class="writing-efect">
+                        <p class="anunt-intro">No plans yet? <span class="text-primary">No problem.</span>
+                            Great stays are waiting for you.
+                        </p>
+                    </div>
 
-                    <p class="anunt intro">No plans yet? No problem.
-                        Take a look at some inspiring stays and start dreaming about your next escape.
-                    </p>
+
+
 
                     <div class="galerie">
+                        <% vectLuni=["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"]
+                            for(let imag of locals.imagini){ lunaCurenta=vectLuni[(new Date()).getMonth()]
+                            if(imag.luni?.includes(lunaCurenta)){%>
 
-                        <img src="/resurse/imagini/cozy_cabin.jpg" alt="Sweden">
-                        <img src="/resurse/imagini/maroc.jpg" alt="Maroc">
-                        <img src="/resurse/imagini/greece.jpg" alt="Greece">
-                        <img src="/resurse/imagini/exotic_house.jpg" alt="Thailand">
-                        <img src="/resurse/imagini/poland_house.jpg" alt="Poland">
-                        <img src="/resurse/imagini/japan.jpg" alt="Japan">
-                        <img src="/resurse/imagini/paris_tower.jpg" alt="Paris">
-
-
+                            <figure>
+                                <picture>
+                                    <source srcset="<%- imag.fisier_mediu %>" media="screen and (max-width: 1100px)">
+                                    <img src="<%- imag.fisier %>" alt="photo">
+                                </picture>
+                                <figcaption><%- imag.descriere %></figcaption>
+                            </figure>
+                            <% } } %>
 
                     </div>
                     <p>Need travel inspiration? Visit
@@ -315,7 +326,12 @@
                 </section>
 
                 <section id="top-destinations">
-                    <h2>Top Destinations</h2>
+                    <div class="reflection-efect">
+                        <h2 class="real">Top Destinations</h2>
+                        <h2 class="reflection">Top Destinations</h2>
+                    </div>
+
+
                     <p class="intro">Discover the most popular areas to stay in the city.</p>
 
 
@@ -492,7 +508,7 @@
                                 <tr>
                                     <td>Paris</td>
                                     <td><b>Festival of Lanterns</b></td>
-                                    <td><time datetime=2026-08-27>August 27</time></td>
+                                    <td><time datetime="2026-08-27">August 27</time></td>
                                     <td><time datetime="2026-09-27">9:00 PM</time></td>
                                     <td><meter min="0" max="100" value="75"></meter></td>
                                 </tr>

@@ -1,0 +1,373 @@
+{
+	"cale_galerie": "resurse/imagini/galerie",
+	"imagini": [
+		{
+			"cale_fisier": "capad_galerie.jpg",
+			"nume": "Capadoccia picture",
+			"descriere": "Capadoccia",
+			"luni": [
+				"martie",
+				"mai",
+				"noiembrie",
+				"aprilie",
+				"decembrie",
+				"octombrie"
+			]
+		},
+		{
+			"cale_fisier": "cozy_cabin.jpg",
+			"nume": "Sweden picture",
+			"descriere": "Sweden",
+			"luni": [
+				"ianuarie",
+				"februarie",
+				"iunie",
+				"octombrie"
+			]
+		},
+		{
+			"cale_fisier": "exotic_house.jpg",
+			"nume": "Bali picture",
+			"descriere": "Bali",
+			"luni": [
+				"ianuarie",
+				"noiembrie",
+				"iunie",
+				"martie",
+				"aprilie",
+				"mai"
+			]
+		},
+		{
+			"cale_fisier": "forest_galerie.jpg",
+			"nume": "Bora Bora picture",
+			"descriere": "Bora Bora",
+			"luni": [
+				"noiembrie",
+				"aprilie",
+				"decembrie",
+				"mai"
+			]
+		},
+		{
+			"cale_fisier": "grand_galerie.jpg",
+			"nume": "Grand Canyon picture",
+			"descriere": "Grand Canyon",
+			"luni": [
+				"noiembrie",
+				"aprilie",
+				"decembrie",
+				"octombrie"
+			]
+		},
+		{
+			"cale_fisier": "greece_galerie.jpg",
+			"nume": "Greece picture",
+			"descriere": "Greece",
+			"luni": [
+				"martie",
+				"februarie",
+				"iunie",
+				"octombrie",
+				"mai"
+			]
+		},
+		{
+			"cale_fisier": "greece.jpg",
+			"nume": "Italy picture",
+			"descriere": "Italy",
+			"luni": [
+				"martie",
+				"februarie",
+				"iunie",
+				"octombrie"
+			]
+		},
+		{
+			"cale_fisier": "japan.jpg",
+			"nume": "Japan picture",
+			"descriere": "Japan",
+			"luni": [
+				"martie",
+				"februarie",
+				"iunie",
+				"octombrie",
+				"mai"
+			]
+		},
+		{
+			"cale_fisier": "maroc_galerie.jpg",
+			"nume": "Abu Dhabi picture",
+			"descriere": "Abu Dhabi",
+			"luni": [
+				"martie",
+				"februarie",
+				"iunie",
+				"octombrie"
+			]
+		},
+		{
+			"cale_fisier": "maroc.jpg",
+			"nume": "Maroc picture",
+			"descriere": "Maroc",
+			"luni": [
+				"martie",
+				"februarie",
+				"iunie",
+				"octombrie",
+				"mai"
+			]
+		},
+		{
+			"cale_fisier": "paris_tower.jpg",
+			"nume": "Paris picture",
+			"descriere": "Paris",
+			"luni": [
+				"martie",
+				"februarie",
+				"iunie",
+				"octombrie"
+			]
+		},
+		{
+			"cale_fisier": "poland_house.jpg",
+			"nume": "Poland picture",
+			"descriere": "Poland",
+			"luni": [
+				"martie",
+				"februarie",
+				"iunie",
+				"octombrie"
+			]
+		},
+		{
+			"cale_fisier": "pyramids_galerie.jpg",
+			"nume": "Egypt picture",
+			"descriere": "Egypt",
+			"luni": [
+				"martie",
+				"februarie",
+				"iunie",
+				"octombrie"
+			]
+		},
+		{
+			"cale_fisier": "sea_galerie.jpg",
+			"nume": "Greece picture",
+			"descriere": "Greece",
+			"luni": [
+				"martie",
+				"februarie",
+				"iunie",
+				"octombrie"
+			]
+		},
+		{
+			"cale_fisier": "galerie1.jpg",
+			"nume": "Italy Mansion picture",
+			"descriere": "Italy Mansion",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"septembrie"
+			]
+		},
+		{
+			"cale_fisier": "galerie2.jpg",
+			"nume": "Paris Apartment picture",
+			"descriere": "Paris Apartment",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"septembrie"
+			]
+		},
+		{
+			"cale_fisier": "galerie3.jpg",
+			"nume": "Hakone picture",
+			"descriere": "Hakone Modern House",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"septembrie"
+			]
+		},
+		{
+			"cale_fisier": "galerie4.jpg",
+			"nume": "Kyoto picture",
+			"descriere": "Kyoto Modern House",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"septembrie",
+				"octombrie"
+			]
+		},
+		{
+			"cale_fisier": "galerie5.jpg",
+			"nume": "Osaka picture",
+			"descriere": "Osaka Mountain House",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"september"
+			]
+		},
+		{
+			"cale_fisier": "galerie6.jpg",
+			"nume": "Hawaii picture",
+			"descriere": "Hawaaii Mansion",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"september",
+				"noiembrie",
+				"decembrie"
+			]
+		},
+		{
+			"cale_fisier": "galerie7.jpg",
+			"nume": "New York picture",
+			"descriere": "New York Penthouse",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"september",
+				"noiembrie",
+				"decembrie"
+			]
+		},
+		{
+			"cale_fisier": "galerie8.jpg",
+			"nume": "Los Angeles picture",
+			"descriere": "Los Angeles Modern House",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"september"
+			]
+		},
+		{
+			"cale_fisier": "galerie9.jpg",
+			"nume": "Miami picture",
+			"descriere": "Miami Beach House",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"september"
+			]
+		},
+		{
+			"cale_fisier": "galerie10.jpg",
+			"nume": "Greece Mansion picture",
+			"descriere": "Greece Mansion",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"september"
+			]
+		},
+		{
+			"cale_fisier": "galerie11.jpg",
+			"nume": "Amsterdam picture",
+			"descriere": "Amsterdam Modern House",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"september",
+				"noiembrie"
+			]
+		},
+		{
+			"cale_fisier": "galerie12.jpg",
+			"nume": "Norway picture",
+			"descriere": "Norway Mansion",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"september",
+				"noiembrie",
+				"decembrie",
+				"ianuarie"
+			]
+		},
+		{
+			"cale_fisier": "galerie13.jpg",
+			"nume": "St Moritz picture",
+			"descriere": "St Moritz Mansion",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"september",
+				"noiembrie",
+				"decembrie",
+				"ianuarie"
+			]
+		},
+		{
+			"cale_fisier": "galerie14.jpg",
+			"nume": "Scotland picture",
+			"descriere": "Scotland Mansion",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"september"
+			]
+		},
+		{
+			"cale_fisier": "galerie15.jpg",
+			"nume": "Sweden picture",
+			"descriere": "Sweden Mansion",
+			"luni": [
+				"martie",
+				"mai",
+				"iunie",
+				"iulie",
+				"august",
+				"september"
+			]
+		}
+	]
+}

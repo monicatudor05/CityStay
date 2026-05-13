@@ -1,0 +1,90 @@
+@use '../../node_modules/bootstrap/scss/bootstrap.scss'
+with ($primary: pink,
+    $secondary: purple,
+    $h1-font-size: 2.5rem, //fs-1
+    // $h2-font-size: 5rem, //fs-2
+    $h4-font-size: 2.5rem, //fs-4
+    $h5-font-size: 1rem,
+    $font-family-base: 'Poppins',
+    $body-bg: #7ac0da,
+    $light: #f5f0eb,
+    $dark: #0d1b2a,
+
+
+    $grid-breakpoints: (xs: 0,
+        sm: 576px,
+        md: 850px, // medium screens — changed from 768px
+        lg: 1100px, // large screens — changed from 992px
+        xl: 1400px,
+        xxl: 1600px,
+    ),
+
+    $container-max-widths: (sm: 540px,
+        md: 800px, // container width on medium screens
+        lg: 1050px, // container width on large screens
+        xl: 1320px,
+        xxl: 1520px,
+    ),
+
+    $border-radius: 0.5rem, // default radius
+    $border-radius-sm: 0.25rem, // small radius
+    $border-radius-lg: 1rem, // large radius
+    $border-radius-xl: 2rem, // extra large
+    $border-radius-pill: 50rem, // pill shape
+);
+
+.text-primary {
+    --bs-text-opacity: 1;
+    color: pink !important;
+
+}
+
+.btn-primary {
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+h2.fs-2 {
+    font-size: 8rem !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+
+}
+
+p.fs-4 {
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+
+}
+
+p.intro.fs-5 {
+    font-size: 1.3rem !important;
+}
+
+.intro-oferte b {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.anunt-intro {
+    font-size: 3rem;
+    font-family: 'Popins', sans-serif;
+    color: azure;
+
+    span {
+        font-weight: bold;
+    }
+
+
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
