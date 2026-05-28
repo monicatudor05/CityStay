@@ -1,5 +1,7 @@
 :root {
     --culoare-airbnb-logo: #DB1B42;
+    --odd: #f7f7f7;
+    --even: #ffffff;
 }
 
 #events table {
@@ -18,6 +20,7 @@
 
 #events tbody tr:last-child td:first-child {
     border-bottom-left-radius: 12px;
+
 }
 
 #events tbody tr:last-child td:last-child {
@@ -25,11 +28,11 @@
 }
 
 #events tbody tr:nth-child(odd) {
-    background-color: #f7f7f7;
+    background-color: var(--odd);
 }
 
 #events tbody tr:nth-child(even) {
-    background-color: #ffffff;
+    background-color: var(--even);
 }
 
 #events thead {
@@ -61,7 +64,7 @@
 .tabel {
     max-height: 300px;
     overflow-y: auto;
-    border: #DB1B42;
+    border: var(--culoare-airbnb-logo);
     border-radius: 12px;
 }
 

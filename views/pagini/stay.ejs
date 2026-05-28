@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CityStay</title>
+    <meta name="description"
+        content="CityStay ofera apartamente moderne si confortabile pentru cazare pe un termen limitat. Rezervari rapide, preturi avantajoase si locatii centrale.">
+    <meta name="keywords"
+        content="rental, apartment, booking,cazare online,rezervari apartamente,inchirieri pe termen scurt, platforma inchirieri, proprietati de vacante,cautare cazare, filtru locatii,promotii,apartamente disponibile, rezultate filtrare, lista cazari, descriere apartament, facilitati">
+
+    <%- include('../fragmente/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../fragmente/header.ejs') %>
+        <p class="articol_id">Article_<%=locals.stay.id%>
+        </p>
+        <main>
+
+            <section id="stay-page">
+                <div class="stay-left">
+                    <figure class="stay-image">
+                        <img src="/<%= locals.stay.imagine %>" alt="<%= locals.stay.nume_proprietate %>">
+                    </figure>
+                    <article class="stay-details">
+                        <h1>
+                            <%= locals.stay.nume_proprietate %>
+                        </h1>
+                        <p>📍 <%= locals.stay.oras %>, <%= locals.stay.tara %>
+                        </p>
+                        <p>
+                            <%= locals.stay.adresa %>
+                        </p>
+                        <p>⭐ <%= locals.stay.rating %>
+                        </p>
+                        <p>
+                            <%= locals.stay.tip_proprietate %>
+                        </p>
+                        <p>
+                            <%= locals.stay.descriere %>
+                        </p>
+                    </article>
+                </div>
+
+
+                <div class="stay-facilities">
+                    <h3>Facilities</h3>
+                    <% for(let facility of locals.stay.facilitati){ %>
+                        <button class="facility-tag">
+                            <%= facility %>
+                        </button>
+                        <% } %>
+                </div>
+
+                <div class="stay-info">
+                    <h4>What we offer</h4>
+                    <p>
+                        <%= locals.stay.nr_dormitoare %> bedrooms
+                    </p>
+                    <p>
+                        <%= locals.stay.nr_bai %> bathrooms
+                    </p>
+                    <p>
+                        <%= locals.stay.nr_persoane %> guests
+                    </p>
+                    <p>
+                        <%= locals.stay.dimensiune_mp %> m²
+                    </p>
+                    <% if(locals.stay.balcon){ %>
+                        <p>Balcony</p>
+                        <% } %>
+                            <% if(locals.stay.animal_friendly){ %>
+                                <p>Pet Friendly</p>
+                                <% } %>
+                </div>
+
+                <div class="stay-booking">
+                    <p class="stay-price">€<%= locals.stay.pret_noapte %> /night</p>
+                    <button class="btn-book">Book now</button>
+                    <p class="charge">You won't be charged yet</p>
+                </div>
+
+                <div class="stay-map">
+                    <iframe width="100%" height="450" style="border:0; border-radius: 12px;" loading="lazy"
+                        allowfullscreen
+                        src="https://maps.google.com/maps?q=<%= encodeURIComponent(locals.stay.adresa) %>&output=embed">
+                    </iframe>
+                </div>
+                <% if(locals.similare && similare.length>0){%>
+
+                    <section class="produse-similare">
+                        <h3>Similar stays</h3>
+                        <div class="similar-container">
+                            <% for(let s of similare){%>
+                                <article class="similar-card">
+
+                                    <a href="/stay/<%-s.id%>">
+                                        <img src="/<%=s.imagine%>" alt="similar">
+                                    </a>
+                                    <h3><a href="/stay/<%-s.id%>"><%-s.nume_proprietate%></a></h3>
+                                    <p><%-s.tip_proprietate%> • <%-s.pret_noapte%>€/night</p>
+                                    <p><%-s.nr_persoane%> guests • <%-s.nr_dormitoare%> bedrooms</p>
+
+                                </article>
+                                <%}%>
+                        </div>
+                    </section>
+                    <%}%>
+            </section>
+
+        </main>
+        <%- include('../fragmente/footer.ejs') %>
+</body>
+
+</html>

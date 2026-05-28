@@ -1,5 +1,9 @@
 /* text care se plimba orizontal sau verticalprintr-o animație (keyframes) recurentă (după ce se termină mesajul, reapare). Elementul cu textul trebuie să fie responsive (să nu apara scrollbar orizontal pe pagină din cauza lui--0.05 */
 
+.root {
+    --culoare-text: rgb(225, 182, 189);
+}
+
 .anunt-intro {
     overflow: hidden;
     white-space: nowrap;
@@ -39,7 +43,7 @@
 
 ::selection {
     color: black;
-    background-color: rgb(225, 182, 189);
+    background-color: var(--culoare-text);
 }
 
 /* reflection --0.15*/

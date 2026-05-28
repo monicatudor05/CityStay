@@ -39,6 +39,7 @@ header {
 header h1 {
     color: var(--culoare-airbnb-logo);
     font-family: "Poppins", sans-serif;
+    font-weight: 700;
 }
 
 body {
@@ -95,8 +96,6 @@ h3 {
     background-color: rgba(15, 28, 46, 0.85);
     padding: var(--spatiere-pagina);
     border-bottom: 1px solid grey;
-
-
 }
 
 #about {
@@ -377,13 +376,13 @@ meter {
 
 }
 
-meter::-webkit-meter-optimum-value {
+/* meter::-webkit-meter-optimum-value {
     background: black;
 }
 
 meter::-webkit-meter-bar {
     background: #dd57c7;
-}
+} */
 
 .destinations-container {
     display: flex;
@@ -406,17 +405,18 @@ meter::-webkit-meter-bar {
     height: 300px;
     object-fit: cover;
     border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
 .destination-card:hover img {
     transform: scale(1.03);
 }
 
-.destination-card img {
+/* .destination-card img {
     transition: transform 0.3s ease;
-}
+} */
 
-footer {
+.stilizare- footer {
     background-color: #2e5080;
     padding: 20px 40px;
     margin-top: 40px;
@@ -426,12 +426,13 @@ footer {
     max-width: 500px;
     margin-left: 30px;
     font-style: normal;
+    color: white;
 
 
 }
 
 .footer-title {
-    color: black;
+    color: white;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
 
@@ -440,6 +441,7 @@ footer {
 .footer-contact p {
     margin: 10px 0;
     font-family: "Poppins", sans-serif;
+    color: white;
 
 }
 
@@ -447,6 +449,7 @@ footer {
     color: #222222;
     text-decoration: none;
     margin-left: 10px;
+    color: white;
 
 }
 
@@ -533,4 +536,25 @@ footer {
 
 #link-top:hover::before {
     transform: rotate(360deg);
+}
+
+
+/* badge- ieftin */
+
+
+.badge-ieftin {
+    background: gold;
+    color: #1a2a3a;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 5px 12px;
+    border-radius: 8px;
+    text-align: center;
+
+    display: inline-block;
+}
+
+figcaption.no-counter::before {
+    content: "" !important;
 }

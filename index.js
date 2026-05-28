@@ -3,18 +3,59 @@ const path = require("path");
 const fs = require("fs");
 const sass = require("sass");
 const sharp = require("sharp");
+const pg = require("pg");
+
+require(path.join(__dirname, "resurse/js/oferte"))
+
+
+const Drepturi = require("./module_proprii/drepturi.js");
+
 
 app = express();
 app.set("view engine", "ejs")
 
+
+
+
+
 obGlobal = {
     obErori: null,
     obImagini: null,
+    obCategorii: [],
     folderScss: path.join(__dirname, "resurse/scss"),
     folderCss: path.join(__dirname, "resurse/css"),
     folderBackup: path.join(__dirname, "backup")
 }
 
+client = new pg.Client({
+    database: "citystay",
+    user: "monica",
+    password: "parola123",
+    host: "localhost",
+    port: 5432
+})
+
+client.connect()
+
+client.query(`select DISTINCT tip_proprietate FROM stays`, function (err, rez) {
+    if (err) {
+        console.log("Eroare", err)
+    }
+    else {
+        obGlobal.obCategorii = rez.rows.map(r => r.tip_proprietate)
+        console.log("Categorii setate:", obGlobal.obCategorii) // ✅ add this
+        // console.log(rez.rows)
+    }
+})
+
+client.query(`select * from stays`, function (err, rez) {
+    if (err) {
+        console.log("Eroare", err)
+    }
+    else {
+        console.log(rez.rows)
+    }
+})
 
 function initErori() {
     let continut = fs.readFileSync(path.join(__dirname, "resurse/json/erori.json")).toString("utf-8");
@@ -65,7 +106,7 @@ function verificareErori() {
         console.error(`Proprietatea 'imagine' nu exista in obiectul 'eroare_default' din fisierul erori.json!`);
     }
 
-    //bonus 4
+    //bonus 4 nu exista cale_baza
     const caleFolder = path.join(__dirname, erori.cale_baza);
 
     if (!fs.existsSync(caleFolder)) {
@@ -73,7 +114,7 @@ function verificareErori() {
 
     }
 
-    //bonus 5
+    //bonus 5 --imaagini
     const caleImgDefault = path.join(__dirname, erori.cale_baza, erori.eroare_default.imagine);
     if (!fs.existsSync(caleImgDefault)) {
         console.error(`Imaginea pentru eroare_default nu exita`);
@@ -91,8 +132,12 @@ function verificareErori() {
     //bonus 6 - fara duplicate
 
     const linii = continutString.split('\n');
-    const proprietatiVazute = [];
+    let proprietatiVazute = [];
     for (let i = 0; i < linii.length; i++) {
+
+        if (linii[i].includes('{')) {
+            proprietatiVazute = [];
+        }
         const match = linii[i].match(/^\s*"(\w+)"\s*:/);
         if (match) {
             const prop = match[1];
@@ -186,7 +231,7 @@ function afisareEroare(res, identificator, titlu, text, imagine) {
     //     return elem.identificator = identificator
     // })
     //sau o scriem ca arrow function
-    let eroare = obGlobal.obErori.info_erori.find((elem) => elem.identificator = identificator)
+    let eroare = obGlobal.obErori.info_erori.find((elem) => elem.identificator == identificator)
 
 
     //daca sunt setate titlu, text, imagine, le folosim, 
@@ -229,6 +274,18 @@ for (let folder of vect_foldere) {
 //     res.sendFile(path.join(__dirname, "index.html"));
 // });
 
+app.use(function (req, res, next) {
+    if (obGlobal.obCategorii.length === 0) {
+        client.query(`SELECT DISTINCT tip_proprietate FROM stays`, function (err, rez) {
+            if (!err) {
+                obGlobal.obCategorii = rez.rows.map(r => r.tip_proprietate)
+            }
+            next()
+        })
+    } else {
+        next()
+    }
+})
 
 app.use("/resurse", express.static(path.join(__dirname, "/resurse")));
 app.use("/dist", express.static(path.join(__dirname, "/node_modules/bootstrap/dist")));
@@ -263,7 +320,15 @@ app.get("/cale2/:a/:b", function (req, res) {
     res.send(parseInt(req.params.a) + parseInt(req.params.b));
 });
 
-//bonus etapaa 5--verificare erori imagini
+app.get("/oferta-curenta", function (req, res) {
+    let oferte = JSON.parse(fs.readFileSync(path.join(__dirname, "resurse/json/oferte.json"))).oferte
+    if (oferte.length > 0) {
+        res.json(oferte[0])
+    } else {
+        res.json(null)
+    }
+})
+//bonus etapa 5--verificare erori imagini
 
 function verificareImagini(obImagini) {
     let caleGalerie = path.join(__dirname, obImagini.cale_galerie);
@@ -313,12 +378,83 @@ verificareImagini(obGlobal.obImagini);
 app.get(["/", "/index", "/home"], function (req, res) {
     res.render("pagini/index", {
         ip: req.ip,
-        imagini: obGlobal.obImagini.imagini
+        imagini: obGlobal.obImagini.imagini,
+        categorii: obGlobal.obCategorii
+
     });
 });
 //["/", "index", "/home"] - array  of rutes
 
+app.get("/stays", function (req, res) {
+    let clauzaWhere = "";
+    console.log(req.query);
 
+    if (req.query.tip) {
+        clauzaWhere = `where tip_proprietate='${req.query.tip}'`
+
+    }
+    client.query(`select * from stays ${clauzaWhere}`, function (err, rez) {
+
+
+        if (err) {
+            console.log("Erore", err)
+            afisareEroare(res, 2)
+            return;
+        }
+
+        let staysData = rez.rows
+
+        client.query("select dimensiune_mp from stays", function (err, rez2) {
+            if (err) {
+                afisareEroare(res, 2); return;
+            }
+            let dimensiuni = rez2.rows.map(row => parseFloat(row.dimensiune_mp))
+            let dimMin = Math.min(...dimensiuni)
+            let dimMax = Math.max(...dimensiuni)
+            console.log(dimMax)
+            console.log(dimMin)
+
+            res.render("pagini/stays", {
+
+                stays: staysData,
+                dimMin: dimMin,
+                dimMax: dimMax,
+                optiuni: [],
+                categorii: obGlobal.obCategorii
+            });
+
+        });
+
+    });
+});
+
+
+app.get("/stay/:id", function (req, res) {
+    client.query(`select * from stays where id=${req.params.id}`, function (err, rez) {
+        if (err) { afisareEroare(res, 2); return; }
+        if (rez.rowCount == 0) { afisareEroare(res, 404); return; }
+
+        let stay = rez.rows[0]
+
+        client.query(`select * from stays where oras='${stay.oras}' and id!=${stay.id} limit 4`, function (err, rez2) {
+            if (err) { afisareEroare(res, 2); return; }
+            res.render("pagini/stay", {
+                stay: stay,
+                categorii: obGlobal.obCategorii,
+                similare: rez2.rows
+            });
+        });
+    });
+});
+
+// client.query("select pret_noapte from stays", function (err, rez) {
+//     if (err) {
+//         console.log("Eroare", err)
+//     }
+//     else {
+//         console.log(rez.rows)
+//     }
+// })
 
 app.get("/*pagina", function (req, res) {
     console.log("Cale pagina", req.url);

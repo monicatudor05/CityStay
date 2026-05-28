@@ -1,0 +1,35 @@
+#oferta-banner {
+    background-color: pink;
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#oferta-timer {
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 4px 10px;
+    border-radius: 8px;
+    transition: color 0.3s;
+}
+
+#oferta-timer.urgent {
+    color: #ffff00;
+    animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}

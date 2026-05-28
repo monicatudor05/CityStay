@@ -12,7 +12,8 @@
 				"aprilie",
 				"decembrie",
 				"octombrie"
-			]
+			],
+			"anotimp": "vara"
 		},
 		{
 			"cale_fisier": "cozy_cabin.jpg",
@@ -23,7 +24,8 @@
 				"februarie",
 				"iunie",
 				"octombrie"
-			]
+			],
+			"anotimp": "iarna"
 		},
 		{
 			"cale_fisier": "exotic_house.jpg",
@@ -36,7 +38,8 @@
 				"martie",
 				"aprilie",
 				"mai"
-			]
+			],
+			"anotimp": "toamna"
 		},
 		{
 			"cale_fisier": "forest_galerie.jpg",
@@ -47,7 +50,8 @@
 				"aprilie",
 				"decembrie",
 				"mai"
-			]
+			],
+			"anotimp": "vara"
 		},
 		{
 			"cale_fisier": "grand_galerie.jpg",
@@ -58,7 +62,8 @@
 				"aprilie",
 				"decembrie",
 				"octombrie"
-			]
+			],
+			"anotimp": "primavara"
 		},
 		{
 			"cale_fisier": "greece_galerie.jpg",
@@ -70,7 +75,8 @@
 				"iunie",
 				"octombrie",
 				"mai"
-			]
+			],
+			"anotimp": "primavara"
 		},
 		{
 			"cale_fisier": "greece.jpg",
@@ -81,7 +87,8 @@
 				"februarie",
 				"iunie",
 				"octombrie"
-			]
+			],
+			"anotimp": "primavara"
 		},
 		{
 			"cale_fisier": "japan.jpg",
@@ -93,7 +100,8 @@
 				"iunie",
 				"octombrie",
 				"mai"
-			]
+			],
+			"anotimp": "toamna"
 		},
 		{
 			"cale_fisier": "maroc_galerie.jpg",
@@ -104,7 +112,8 @@
 				"februarie",
 				"iunie",
 				"octombrie"
-			]
+			],
+			"anotimp": "iarna"
 		},
 		{
 			"cale_fisier": "maroc.jpg",
@@ -116,7 +125,8 @@
 				"iunie",
 				"octombrie",
 				"mai"
-			]
+			],
+			"anotimp": "iarna"
 		},
 		{
 			"cale_fisier": "paris_tower.jpg",
@@ -127,7 +137,8 @@
 				"februarie",
 				"iunie",
 				"octombrie"
-			]
+			],
+			"anotimp": "iarna"
 		},
 		{
 			"cale_fisier": "poland_house.jpg",
@@ -138,7 +149,8 @@
 				"februarie",
 				"iunie",
 				"octombrie"
-			]
+			],
+			"anotimp": "toamna"
 		},
 		{
 			"cale_fisier": "pyramids_galerie.jpg",
@@ -149,7 +161,8 @@
 				"februarie",
 				"iunie",
 				"octombrie"
-			]
+			],
+			"anotimp": "vara"
 		},
 		{
 			"cale_fisier": "sea_galerie.jpg",
@@ -160,7 +173,8 @@
 				"februarie",
 				"iunie",
 				"octombrie"
-			]
+			],
+			"anotimp": "vara"
 		},
 		{
 			"cale_fisier": "galerie1.jpg",
@@ -173,7 +187,8 @@
 				"iulie",
 				"august",
 				"septembrie"
-			]
+			],
+			"anotimp": "toamna"
 		},
 		{
 			"cale_fisier": "galerie2.jpg",
@@ -186,7 +201,8 @@
 				"iulie",
 				"august",
 				"septembrie"
-			]
+			],
+			"anotimp": "primavara"
 		},
 		{
 			"cale_fisier": "galerie3.jpg",
@@ -199,7 +215,8 @@
 				"iulie",
 				"august",
 				"septembrie"
-			]
+			],
+			"anotimp": "vara"
 		},
 		{
 			"cale_fisier": "galerie4.jpg",
@@ -213,7 +230,8 @@
 				"august",
 				"septembrie",
 				"octombrie"
-			]
+			],
+			"anotimp": "vara"
 		},
 		{
 			"cale_fisier": "galerie5.jpg",
@@ -226,7 +244,8 @@
 				"iulie",
 				"august",
 				"september"
-			]
+			],
+			"anotimp": "iarna"
 		},
 		{
 			"cale_fisier": "galerie6.jpg",
@@ -241,7 +260,8 @@
 				"september",
 				"noiembrie",
 				"decembrie"
-			]
+			],
+			"anotimp": "vara"
 		},
 		{
 			"cale_fisier": "galerie7.jpg",
@@ -256,7 +276,8 @@
 				"september",
 				"noiembrie",
 				"decembrie"
-			]
+			],
+			"anotimp": "vara"
 		},
 		{
 			"cale_fisier": "galerie8.jpg",
@@ -269,7 +290,8 @@
 				"iulie",
 				"august",
 				"september"
-			]
+			],
+			"anotimp": "iarna"
 		},
 		{
 			"cale_fisier": "galerie9.jpg",
@@ -282,7 +304,8 @@
 				"iulie",
 				"august",
 				"september"
-			]
+			],
+			"anotimp": "toamna"
 		},
 		{
 			"cale_fisier": "galerie10.jpg",
@@ -295,7 +318,8 @@
 				"iulie",
 				"august",
 				"september"
-			]
+			],
+			"anotimp": "toamna"
 		},
 		{
 			"cale_fisier": "galerie11.jpg",
@@ -309,7 +333,8 @@
 				"august",
 				"september",
 				"noiembrie"
-			]
+			],
+			"anotimp": "iarna"
 		},
 		{
 			"cale_fisier": "galerie12.jpg",
@@ -325,7 +350,8 @@
 				"noiembrie",
 				"decembrie",
 				"ianuarie"
-			]
+			],
+			"anotimp": "primavara"
 		},
 		{
 			"cale_fisier": "galerie13.jpg",
@@ -341,7 +367,8 @@
 				"noiembrie",
 				"decembrie",
 				"ianuarie"
-			]
+			],
+			"anotimp": "vara"
 		},
 		{
 			"cale_fisier": "galerie14.jpg",
@@ -354,7 +381,8 @@
 				"iulie",
 				"august",
 				"september"
-			]
+			],
+			"anotimp": "vara"
 		},
 		{
 			"cale_fisier": "galerie15.jpg",
@@ -367,7 +395,8 @@
 				"iulie",
 				"august",
 				"september"
-			]
+			],
+			"anotimp": "iarna"
 		}
 	]
 }

@@ -20,15 +20,32 @@
                 </ul>
             </li>
 
-            <li><a href="#"><i class="fa-solid fa-plane"></i>Popular Stays</a>
+            <li><a href="#"><i class="fa-solid fa-plane"></i>Stays</a>
                 <ul class="submenu">
                     <li><a href="/index#stays">Popular Stays</a></li>
                     <li><a href="/index#top-destinations">Top Destinations</a></li>
                 </ul>
             </li>
+            <li><a href="#"><i class="fa-solid fa-globe"></i>Explore Stays</a>
+                <ul class="submenu">
+                    <li><a href="/stays">All</a></li>
+                    <% for( let categ of (locals.categorii || [])){%>
+                        <li><a href="/stays?tip=<%-categ%>">
+                                <%- categ.charAt(0).toUpperCase() + categ.slice(1)%>
+                            </a></li>
+                        <%}%>
+                </ul>
+            </li>
             <li><a href="/index#how-citystay-works"><i class="fa-solid fa-magnifying-glass"></i>How It Works</a></li>
             <li><a href="/index#events"><i class="fa-solid fa-calendar"></i>Events</a></li>
         </ul>
+
+        <div class="form-check form-switch ms-auto">
+            <input class="form-check-input" type="checkbox" id="theme-switch">
+            <label class="form-check-label" for="theme-switch">
+                <i class="bi bi-moon" id="theme-icon" style="color: black; font-size: 1.5rem;"></i>
+            </label>
+        </div>
 
     </nav>
 </header>

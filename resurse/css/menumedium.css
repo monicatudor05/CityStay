@@ -8,15 +8,19 @@ body {
 }
 
 @media (max-width: 900px) {
-  nav .menu > li > a {
+  nav .menu>li>a {
     font-size: 0;
   }
-  nav .menu > li > a i {
+
+  /* icons */
+  nav .menu>li>a i {
     font-size: 1.5rem;
   }
-  nav .menu > li > a:hover {
+
+  nav .menu>li>a:hover {
     font-size: 0;
   }
+
   nav .submenu li a {
     font-size: 13px;
   }
