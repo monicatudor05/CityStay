@@ -1,4 +1,4 @@
-/* text care se plimba orizontal sau verticalprintr-o animație (keyframes) recurentă (după ce se termină mesajul, reapare). Elementul cu textul trebuie să fie responsive (să nu apara scrollbar orizontal pe pagină din cauza lui--0.05 */
+/* text care se plimba orizontal sau verticalprintr-o animatie (keyframes) recurentă (după ce se termina mesajul, reapare) Elementul cu textul trebuie să fie responsive (sa nu apara scrollbar orizontal pe pagina din cauza lui--0.05 */
 
 .root {
     --culoare-text: rgb(225, 182, 189);
@@ -43,8 +43,10 @@
 
 ::selection {
     color: black;
-    background-color: var(--culoare-text);
+    background-color: pink;
 }
+
+
 
 /* reflection --0.15*/
 

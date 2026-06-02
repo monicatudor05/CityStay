@@ -11,26 +11,33 @@ with ($primary: pink,
     $dark: #0d1b2a,
 
 
+    $btn-border-radius: 20px,
+    $btn-border-width: 2px,
+    $input-border-radius: 0.5rem,
+    $input-border-width: 2px,
+
+
+
     $grid-breakpoints: (xs: 0,
         sm: 576px,
-        md: 850px, // medium screens — changed from 768px
-        lg: 1100px, // large screens — changed from 992px
+        md: 850px,
+        lg: 1100px,
         xl: 1400px,
         xxl: 1600px,
     ),
 
     $container-max-widths: (sm: 540px,
-        md: 800px, // container width on medium screens
-        lg: 1050px, // container width on large screens
+        md: 800px,
+        lg: 1050px,
         xl: 1320px,
         xxl: 1520px,
     ),
 
-    $border-radius: 0.5rem, // default radius
-    $border-radius-sm: 0.25rem, // small radius
-    $border-radius-lg: 1rem, // large radius
-    $border-radius-xl: 2rem, // extra large
-    $border-radius-pill: 50rem, // pill shape
+    $border-radius: 0.5rem,
+    $border-radius-sm: 0.25rem,
+    $border-radius-lg: 1rem,
+    $border-radius-xl: 2rem,
+    $border-radius-pill: 50rem,
 );
 
 .text-primary {

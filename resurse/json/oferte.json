@@ -1,28 +1,28 @@
 {
   "oferte": [
     {
-      "categorie": "mansion",
-      "reducere": 25,
-      "data-incepere": "2026-05-28T15:32:07.391Z",
-      "data-finalizare": "2026-05-28T15:34:07.391Z"
+      "categorie": "apartament",
+      "reducere": 30,
+      "data-incepere": "2026-06-02T20:17:22.224Z",
+      "data-finalizare": "2026-06-02T20:19:22.224Z"
     },
     {
-      "categorie": "house",
-      "reducere": 15,
-      "data-incepere": "2026-05-28T15:30:07.389Z",
-      "data-finalizare": "2026-05-28T15:32:07.389Z"
+      "categorie": "mansion",
+      "reducere": 45,
+      "data-incepere": "2026-06-02T20:15:22.221Z",
+      "data-finalizare": "2026-06-02T20:17:22.221Z"
     },
     {
       "categorie": "penthouse",
-      "reducere": 30,
-      "data-incepere": "2026-05-28T15:28:07.357Z",
-      "data-finalizare": "2026-05-28T15:30:07.357Z"
+      "reducere": 25,
+      "data-incepere": "2026-06-02T20:13:22.217Z",
+      "data-finalizare": "2026-06-02T20:15:22.217Z"
     },
     {
-      "categorie": "apartament",
-      "reducere": 20,
-      "data-incepere": "2026-05-28T15:26:07.354Z",
-      "data-finalizare": "2026-05-28T15:28:07.354Z"
+      "categorie": "mansion",
+      "reducere": 25,
+      "data-incepere": "2026-06-02T20:11:22.216Z",
+      "data-finalizare": "2026-06-02T20:13:22.216Z"
     }
   ]
 }

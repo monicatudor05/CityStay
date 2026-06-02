@@ -1,0 +1,142 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 80vh;
+}
+
+main h1 {
+    color: pink;
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    margin-bottom: 30px;
+    font-weight: 800;
+
+}
+
+main p[style*="red"] {
+    background-color: #ffe0e0;
+    border-left: 4px solid red;
+    padding: 10px 16px;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 10px;
+}
+
+main p[style*="green"] {
+    background-color: #e0ffe0;
+    border-left: 4px solid green;
+    padding: 10px 16px;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 10px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 500px;
+    background-color: #f5f8fc;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(26, 58, 92, 0.15);
+    border-top: 4px solid pink;
+
+}
+
+
+form label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a3a5c;
+    margin-bottom: 2px;
+}
+
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="date"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #c0d0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #1a3a5c;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #f0c040;
+
+    box-shadow: 0 0 0 3px rgba(240, 192, 64, 0.2);
+}
+
+
+form input[type="color"] {
+    width: 60px;
+    height: 40px;
+    border: 1.5px solid #c0d0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 2px;
+}
+
+
+form input[type="file"] {
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    color: #1a3a5c;
+    cursor: pointer;
+}
+
+
+form button[type="submit"] {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: pink;
+
+    color: #1a3a5c;
+
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 4px 10px rgba(240, 192, 64, 0.4);
+}
+
+form button[type="submit"]:hover {
+    background-color: #d400b1;
+    transform: translateY(-1px);
+
+}
+
+form button[type="submit"]:active {
+    transform: translateY(0px);
+}
+
+
+@media (max-width: 768px) {
+    form {
+        padding: 20px;
+    }
+
+    main h1 {
+        font-size: 1.5rem;
+    }
+}

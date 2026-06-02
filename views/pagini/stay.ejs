@@ -19,8 +19,17 @@
 
             <section id="stay-page">
                 <div class="stay-left">
-                    <figure class="stay-image">
-                        <img src="/<%= locals.stay.imagine %>" alt="<%= locals.stay.nume_proprietate %>">
+                    <figure class="stay-image" id="stay-gallery">
+                        <% if(imagini.length>0 && locals.imagini){%>
+                            <% imagini.forEach(function(src,i){%>
+                                <img src="<%= src %>" class="gallery-img <%= i ===0 ? 'active' : ''%>" alt="photo">
+                                <% }) %>
+                                    <%}else{%>
+                                        <img src="/<%= locals.stay.imagine %>"
+                                            alt="<%= locals.stay.nume_proprietate %>">
+
+                                        <%}%>
+
                     </figure>
                     <article class="stay-details">
                         <h1>
@@ -110,6 +119,32 @@
 
         </main>
         <%- include('../fragmente/footer.ejs') %>
+
+            <script>
+                const gallery = document.getElementById("stay-gallery");
+                const imgs = gallery.querySelectorAll(".gallery-img");
+                let current = 0;
+                let interval = null;
+
+                gallery.addEventListener("mouseenter", function () {
+                    if (imgs.length > 1) {
+                        interval = setInterval(() => {
+                            imgs[current].classList.remove("active");
+                            current = (current + 1) % imgs.length;
+                            imgs[current].classList.add("active");
+                        }, 1200);
+                    }
+                });
+
+                gallery.addEventListener("mouseleave", function () {
+                    clearInterval(interval);
+                    imgs[current].classList.remove("active");
+                    current = 0;
+                    imgs[0].classList.add("active");
+                });
+
+
+            </script>
 </body>
 
 </html>

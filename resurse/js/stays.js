@@ -69,6 +69,7 @@ window.onload = function () {
 
             }
         }
+
         // pentru descriere
         let inpDescriere = document.getElementById("inp-descriere").value.trim().toLowerCase()
         let plusCuv = []
@@ -306,7 +307,8 @@ window.onload = function () {
             let p = this.document.getElementById("infoSuma")
             if (!p) {
                 p = this.document.createElement("p")
-                p.innerHTML = suma
+                p.innerHTML = "Total: " + suma
+                p.style.color = "black"
                 p.id = "infoSuma"
                 let sectiuneFiltre = this.document.getElementsByClassName("content-area")[0]
 
@@ -318,7 +320,8 @@ window.onload = function () {
                 }, 2000)
             }
             else {
-                p.innerHTML = "Total" + suma
+                p.innerHTML = "Total: " + suma
+                p.style.color = "black"
             }
 
 

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head><%- include("../fragmente/head.ejs")%></head>
+
+<body>
+
+    <%- include("../fragmente/header.ejs")%>
+
+
+        <main>
+
+            <h1>Sign In</h1>
+            <% if (locals.err) { %>
+                <p style="color:red">
+                    <%= err %>
+                </p>
+                <% } %>
+                    <% if (locals.raspuns) { %>
+                        <p style="color:green">
+                            <%= raspuns %>
+                        </p>
+                        <% } %>
+                            <form action="/inregistrare" method="POST" enctype="multipart/form-data">
+                                <!-- nume -->
+                                <label for="nume">Sirname:</label>
+                                <input type="text" id="nume" name="nume" required>
+                                <!-- prenume -->
+
+                                <label for="prenume">Birth Name:</label>
+                                <input type="text" id="prenume" name="prenume" required>
+
+                                <label for="username">Username:</label>
+                                <input type="text" id="username" name="username" required>
+
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" required>
+
+                                <label for="password-second">Confirm password</label>
+                                <input type="password" id="password-second" name="password2" required>
+
+                                <!-- email -->
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+
+                                <!-- data nastere -->
+                                <label for="birthdate">Birthdate</label>
+                                <input type="date" id="birthdate" name="birthdate">
+
+                                <!-- culoare chat -->
+                                <label for="chatcolor">Color theme</label>
+                                <input type="color" id="chatcolor" name="chatcolor">
+
+                                <!-- telefon -->
+                                <label for="phone">Phone number</label>
+                                <input type="tel" id="phone" name="phone">
+                                <!-- profile picture -->
+                                <label for="profilepic">Choose a profile picture</label>
+                                <input type="file" id="profilepic" name="profilepic">
+
+
+
+
+
+
+
+
+
+                                <button type="submit">Submit</button>
+                            </form>
+
+        </main>
+
+
+        <script>
+            document.querySelector("form").addEventListener("submit", function (e) {
+
+                let eroare = "";
+
+                //verificam daca paroele coincid
+                let pass1 = document.getElementById("password").value;
+                let pass2 = document.getElementById("password-second").value;
+                let phone = document.getElementById("phone").value;
+                let email = document.getElementById("email").value;
+                if (pass1 != pass2) {
+                    eroare += "Passwords do not match!\n";
+                }
+                if (pass1.length < 8 || pass2.length < 8) {
+                    eroare += "Password must constain minimum 8 characters!\n";
+                }
+                if (!email.includes("@") || !email.includes(".")) {
+                    eroare += "Email musst contain @ and .\n";
+                }
+                if (phone && !phone.match(/^\+?0[0-9]{9,}$/)) {
+                    eroare += "Phone must start with 0 and have minimum 10 digits!\n";
+                }
+
+                if (eroare) {
+                    e.preventDefault();
+                    alert(eroare);
+                }
+            })
+        </script>
+</body>
+
+<%- include("../fragmente/footer.ejs")%>
+
+</html>

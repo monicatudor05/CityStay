@@ -4,14 +4,18 @@ const fs = require("fs");
 const sass = require("sass");
 const sharp = require("sharp");
 const pg = require("pg");
-
+// const cookieParser = require("cookie-parser");
+const formidable = require("formidable");
 require(path.join(__dirname, "resurse/js/oferte"))
 
 
 const Drepturi = require("./module_proprii/drepturi.js");
+const { Utilizator } = require("./module_proprii/utilizator.js");
+
 
 
 app = express();
+// app.use(cookieParser());
 app.set("view engine", "ejs")
 
 
@@ -39,12 +43,11 @@ client.connect()
 
 client.query(`select DISTINCT tip_proprietate FROM stays`, function (err, rez) {
     if (err) {
-        console.log("Eroare", err)
+        console.log("Eroare ", err)
     }
     else {
         obGlobal.obCategorii = rez.rows.map(r => r.tip_proprietate)
-        console.log("Categorii setate:", obGlobal.obCategorii) // ✅ add this
-        // console.log(rez.rows)
+
     }
 })
 
@@ -173,6 +176,7 @@ function compileazaScss(caleScss, caleCss) {
 
         let numeFisExt = path.basename(caleScss); // "folder1/folder2/a.scss" -> "a.scss"
         // let numeFis = numeFisExt.split(".")[0]   /// "a.scss"  -> ["a","scss"]
+        //bonus4-et5
         let numeFis = numeFisExt.substring(0, numeFisExt.lastIndexOf("."));
         caleCss = numeFis + ".css"; // output: a.css
     }
@@ -194,6 +198,7 @@ function compileazaScss(caleScss, caleCss) {
         // fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "resurse/css", numeFisCss))// +(new Date()).getTime()
         let numeFaraCss = numeFisCss.split(".")[0];
         let timestamp = (new Date()).getTime();
+        //bonus3-et5
         let numeFisBackup = numeFaraCss + "_" + timestamp + ".css";
         fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "resurse/css", numeFisBackup))
     }
@@ -206,6 +211,7 @@ function compileazaScss(caleScss, caleCss) {
 //la pornirea serverului
 vFisiere = fs.readdirSync(obGlobal.folderScss);
 for (let numeFis of vFisiere) {
+    //bonus4-et5
     if (path.extname(numeFis) == ".scss") {
         compileazaScss(numeFis);
     }
@@ -328,6 +334,7 @@ app.get("/oferta-curenta", function (req, res) {
         res.json(null)
     }
 })
+
 //bonus etapa 5--verificare erori imagini
 
 function verificareImagini(obImagini) {
@@ -436,25 +443,93 @@ app.get("/stay/:id", function (req, res) {
 
         let stay = rez.rows[0]
 
+        const folderPath = `resurse/imagini/stays/folder${req.params.id}`;
+        let imagini = []
+        try {
+            imagini = fs.readdirSync(folderPath).filter(f => f.endsWith(".jpg")).map(f => `/resurse/imagini/stays/folder${req.params.id}/${f}`)
+        }
+        catch (e) {
+            //nothing happens, imaagini remain empty
+        }
+
         client.query(`select * from stays where oras='${stay.oras}' and id!=${stay.id} limit 4`, function (err, rez2) {
             if (err) { afisareEroare(res, 2); return; }
             res.render("pagini/stay", {
                 stay: stay,
                 categorii: obGlobal.obCategorii,
-                similare: rez2.rows
+                similare: rez2.rows,
+                imagini: imagini
             });
         });
     });
 });
 
-// client.query("select pret_noapte from stays", function (err, rez) {
-//     if (err) {
-//         console.log("Eroare", err)
-//     }
-//     else {
-//         console.log(rez.rows)
-//     }
-// })
+app.get("/profil", function (req, res) {
+    res.render("pagini/profil", {
+
+    })
+})
+
+app.get("/inregistrare", function (req, res) {
+    res.render("pagini/inregistrare");
+
+});
+
+
+app.post("/inregistrare", function (req, res) {
+    var form = new formidable.IncomingForm();
+
+    form.parse(req, function (err, campuriText, campuriFisier) {
+        console.log("Text fields:", campuriText);
+        console.log("Files:", campuriFisier);
+
+        if (!campuriText.nume[0] || !campuriText.prenume[0] || !campuriText.email[0] || !campuriText.password[0] ||
+            !campuriText.username[0]
+        ) {
+            res.render("pagini/inregistrare", {
+                err: "Required fields missing"
+            });
+            return;
+
+        }
+
+        // check passwordd match
+        if (campuriText.password[0] != campuriText.password2[0]) {
+            res.render("pagini/inregistrare", { err: "Passwords don't match" })
+            return;
+        }
+
+        //create new user
+        let utilizNou = new Utilizator({
+            username: campuriText.username[0],
+            nume: campuriText.nume[0],
+            prenume: campuriText.prenume[0],
+            parola: campuriText.password[0],
+            email: campuriText.email[0],
+            data_nastere: campuriText.birthdate[0],
+            culoare_chat: campuriText.chatcolor[0],
+            telefon: campuriText.phone[0]
+
+        });
+
+        Utilizator.getUtilizDupaUsername(campuriText.username[0], {}, function (u, obparam, eroare) {
+            if (eroare != -1) {
+                res.render("pagini/inregistrare", { err: "Username already exists" });
+                return;
+            }
+            //username free--> save
+            utilizNou.salvareUtilizator();
+            res.render("pagini/inregistrare", {
+                raspuns: "Registration successful. Check your email."
+            });
+
+
+        });
+
+
+    });
+});
+
 
 app.get("/*pagina", function (req, res) {
     console.log("Cale pagina", req.url);

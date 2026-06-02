@@ -1,0 +1,316 @@
+<div class="galerie">
+                        <% let
+                            vectLuni=["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
+                            let vectAnotimpuri=["iarna", "primavara" ,"vara","toamna"]; let nr_imagini=0; let
+                            lunaCurenta=vectLuni[(new Date()).getMonth()]; let anotimpCurent=vectAnotimpuri[(new
+                            Date()).getMonth()%4]; 
+                            
+                            
+                            for(let imag of locals.imagini) {
+                            if(imag.anotimp==vectAnotimpuri[anotimpCurent]){ 
+                                
+                                nr_imagini++; } } 
+                                
+                                if(nr_imagini%3!=0){
+                            nr_imagini-=nr_imagini%3; } let ind=0; for(let imag of locals.imagini){ let
+                            lunaCurenta=vectLuni[(new Date()).getMonth() ]; let anotimpCurent=vectAnotimpuri[(new
+                            Date()).getMonth()%4]; if(imag.anotimp==vectAnotimpuri[anotimpCurent]){ ind++; if(ind>
+                            nr_imagini) break;
+
+                            %>
+                            <figure>
+                                <picture>
+                                    <source srcset="<%- imag.fisier_mediu %>" media="screen and (max-width: 1100px)">
+                                    <img src="<%- imag.fisier %>" alt="photo">
+                                </picture>
+                                <figcaption><%- imag.descriere %></figcaption>
+                            </figure>
+                            <% } } %>
+
+                    </div>
+
+
+
+
+
+<!DOCTYPE html>
+<html lan="en">
+
+<head>
+    <meta name="descriere" content="apartment, hosting, booking, mansion, penthouse, house">
+    <link rel="stylesheet" href="/resurse/css/stays.css">
+    <%- include("../fragmente/head")%>
+        <script type="text/javascript" src="/resurse/js/stays.js"></script>
+
+</head>
+
+<body>
+    <%- include("../fragmente/header")%>
+        <main>
+            <fieldset class="filtrare-sections">
+                <legend>Filters</legend>
+                <fieldset>
+                    <label>City:<input type="text" id="inp-city" placeholder="Search by city...">
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <label>Dimension:
+                        <span class="range-min">
+                            <%=dimMin%>
+                        </span>
+                        <input type="range" id="inp-dim" value="10" min="<%=dimMin%>" max="<%=dimMax%>">
+                        <span class="range-max">
+                            <%=dimMax%>
+                        </span>
+                        <span class="info-range">(0)</span>
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <label>Property name:<input type="text" id="inp-nume" placeholder="Type a name...">
+                        <datalist id="lista-nume">
+                            <% for(let stay of locals.stays){%>
+                                <option value="<%-stay.nume_proprietate%>"></option>
+                                <%}%>
+                        </datalist>
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Options</legend>
+                    <label><input type="radio" name="gr_tip" value="all" checked>All</label>
+                    <!-- checkboxul gr_all este individual de celelate pt ca are alt "name" -->
+                    <label><input type="radio" name="gr_tip" value="penthouse">Penthouse</label>
+                    <label><input type="radio" name="gr_tip" value="apartment">Apartment</label>
+                    <label><input type="radio" name="gr_tip" value="house">House</label>
+                    <label><input type="radio" name="gr_tip" value="mansion">Mansion</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Animal friendly</legend>
+                    <label><input type="checkbox" id="inp-animal">Animal friendly only</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Description</legend>
+                    <label>
+                        <textarea id="inp-descriere" rows="3" placeholder="Search by description">
+                        </textarea>
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Bedrooms</legend>
+                    <label>Nmber of bedrooms
+                        <select id="inp-bedrooms">
+                            <option value="1">1 bedroom</option>
+                            <option value="2">2 bedrooms</option>
+                            <option value="3">3 bedrooms</option>
+                            <option value="4">4+ bedrooms</option>
+                        </select>
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Guests</legend>
+                    <label>Number of guests:
+                        <input type="number" id="inp-guests" min="1" max="30" value="1">
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Price</legend>
+                    <select id="inp-price" multiple="3">
+                        <option value="low">100-200</option>
+                        <option value="medium">200-300</option>
+                        <option value="high">300-400</option>
+                        <option value="extra">400+</option>
+                    </select>
+                </fieldset>
+                <div class="content-area">
+                    <p><button class="c1 c2 c3" id="filtrare">Filter</button></p>
+                    <button id="sortCrescNume">Sort cresscator dupa nuume si pret</button>
+                    <button id="sortDescrescNume">Sort descrescator dupa nume si pret</button>
+                    <button id="reset">Reset</button>
+                </div>
+
+            </fieldset>
+            <div class="content-stays">
+                <h2>Stays</h2>
+                <p class="mesaj-gol" style="display: none">No available stays</p>
+                <div class="grid-stays">
+                    <% for(let stay of locals.stays){%>
+                        <article class="stay-article">
+                            <h3 class="denumire">Name: <a href="/stay/<%-stay.id%>"><span
+                                        class="val-name"><%-stay.nume_proprietate%></span>
+                                </a></h3>
+                            <p class="categ">Stay Type:<span class="val-categ">
+                                    <%-stay.tip_proprietate%>
+                                </span></p>
+
+
+                            <div class="stay-information">
+                                <p class="price-per-night">Price: <span class="val-price"><%-stay.pret_noapte%>
+                                    </span>€/night
+                                </p>
+
+                                <!-- oras info -->
+                                <p class="city"><span class="city-name"><%-stay.oras%></span></p>
+                                <p class="dimensiune">Dimension: <span class="val-dimensiune">
+                                        <%-stay.dimensiune_mp%>
+                                    </span></p>
+                                <p class="amenities">Facilties:
+                                <ul class="val-amenities">
+                                    <% for(let i=0;i<stay.facilitati.length;i++){%>
+                                        <li>
+                                            <%= stay.facilitati[i]%>
+                                        </li>
+                                        <%}%>
+                                </ul>
+                                </p>
+                                <p class="pet">Animal-friendly
+                                    <span class="val-pet">
+                                        <% if(stay.animal_friendly){ %>
+                                            <span class="emoji">✅</span>
+                                            <% } else { %>
+                                                <span class="emoji">❌</span>
+                                                <% } %>
+                                    </span>
+                                </p>
+                            </div>
+                            <figure>
+                                <a href="/stay/<%-stay.id%>">
+                                    <img src="<%-stay.imagine%>" style="width:50%; height:auto;"
+                                        alt="[image <%-stay.nume_proprietate%>]" />
+                                </a>
+                            </figure>
+                            <label class="selecteaza-cos">
+                                Select:</br>
+                                <input type="checkbox" class="select-cos" value="<%-stay.id %>" autocomplete="off">
+                            </label>
+                        </article>
+                        <% } %>
+                </div>
+            </div>
+
+
+
+        </main>
+
+        <%- include("../fragmente/footer") %>
+</body>
+
+</html>
+
+
+
+
+<div class="content-area">
+                    <p><button class="c1 c2 c3 btn btn-primary btn-sm w-100" id="filtrare">Filter</button></p>
+
+                    <button class="btn btn-secondary btn-sm w-100" id="sortCrescNume">Sort crescator dupa nume si
+                        pret</button>
+                    <button class="btn btn-secondary btn-sm w-100" id="sortDescrescNume">Sort descrescator dupa nume si
+                        pret</button>
+                    <button class="btn btn-danger btn-sm w-100" id="reset">Reset</button>
+                    <p class="suma">ALT+C for the sum of the stays</p>
+                </div>
+
+
+
+
+
+
+
+                 <section id="stay-page">
+                <div class="stay-left">
+                    <figure class="stay-image" id="stay-gallery">
+                        <img src="/<%= locals.stay.imagine %>" alt="<%= locals.stay.nume_proprietate %>">
+                    </figure>
+                    <article class="stay-details">
+                        <h1>
+                            <%= locals.stay.nume_proprietate %>
+                        </h1>
+                        <p>📍 <%= locals.stay.oras %>, <%= locals.stay.tara %>
+                        </p>
+                        <p>
+                            <%= locals.stay.adresa %>
+                        </p>
+                        <p>⭐ <%= locals.stay.rating %>
+                        </p>
+                        <p>
+                            <%= locals.stay.tip_proprietate %>
+                        </p>
+                        <p>
+                            <%= locals.stay.descriere %>
+                        </p>
+                    </article>
+                </div>
+
+
+                <div class="stay-facilities">
+                    <h3>Facilities</h3>
+                    <% for(let facility of locals.stay.facilitati){ %>
+                        <button class="facility-tag">
+                            <%= facility %>
+                        </button>
+                        <% } %>
+                </div>
+
+                <div class="stay-info">
+                    <h4>What we offer</h4>
+                    <p>
+                        <%= locals.stay.nr_dormitoare %> bedrooms
+                    </p>
+                    <p>
+                        <%= locals.stay.nr_bai %> bathrooms
+                    </p>
+                    <p>
+                        <%= locals.stay.nr_persoane %> guests
+                    </p>
+                    <p>
+                        <%= locals.stay.dimensiune_mp %> m²
+                    </p>
+                    <% if(locals.stay.balcon){ %>
+                        <p>Balcony</p>
+                        <% } %>
+                            <% if(locals.stay.animal_friendly){ %>
+                                <p>Pet Friendly</p>
+                                <% } %>
+                </div>
+
+                <div class="stay-booking">
+                    <p class="stay-price">€<%= locals.stay.pret_noapte %> /night</p>
+                    <button class="btn-book">Book now</button>
+                    <p class="charge">You won't be charged yet</p>
+                </div>
+
+                <div class="stay-map">
+                    <iframe width="100%" height="450" style="border:0; border-radius: 12px;" loading="lazy"
+                        allowfullscreen
+                        src="https://maps.google.com/maps?q=<%= encodeURIComponent(locals.stay.adresa) %>&output=embed">
+                    </iframe>
+                </div>
+                <% if(locals.similare && similare.length>0){%>
+
+                    <section class="produse-similare">
+                        <h3>Similar stays</h3>
+                        <div class="similar-container">
+                            <% for(let s of similare){%>
+                                <article class="similar-card">
+
+                                    <a href="/stay/<%-s.id%>">
+                                        <img src="/<%=s.imagine%>" alt="similar">
+                                    </a>
+                                    <h3><a href="/stay/<%-s.id%>"><%-s.nume_proprietate%></a></h3>
+                                    <p><%-s.tip_proprietate%> • <%-s.pret_noapte%>€/night</p>
+                                    <p><%-s.nr_persoane%> guests • <%-s.nr_dormitoare%> bedrooms</p>
+
+                                </article>
+                                <%}%>
+                        </div>
+                    </section>
+                    <%}%>
+            </section>
+
+        </main>
+        <%- include('../fragmente/footer.ejs') %>
+</body>
+
+</html>
