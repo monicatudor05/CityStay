@@ -7,7 +7,7 @@ const pg = require("pg");
 // const cookieParser = require("cookie-parser");
 const formidable = require("formidable");
 require(path.join(__dirname, "resurse/js/oferte"))
-
+const session = require("express-session");
 
 const Drepturi = require("./module_proprii/drepturi.js");
 const { Utilizator } = require("./module_proprii/utilizator.js");
@@ -15,6 +15,20 @@ const { Utilizator } = require("./module_proprii/utilizator.js");
 
 
 app = express();
+app.use(session({
+    secret: "citystay_secret",
+    resave: true,
+    saveUninitialized: false
+}));
+app.use(function (req, res, next) {
+    if (req.session.utilizator) {
+        res.locals.utilizator = new Utilizator(req.session.utilizator);
+
+    }
+    res.locals.errLogin = req.session.errLogin;
+    req.session.errLogin = null;
+    next();
+});
 // app.use(cookieParser());
 app.set("view engine", "ejs")
 
@@ -296,6 +310,8 @@ app.use(function (req, res, next) {
 app.use("/resurse", express.static(path.join(__dirname, "/resurse")));
 app.use("/dist", express.static(path.join(__dirname, "/node_modules/bootstrap/dist")));
 
+app.use("/poze_uploadate", express.static(path.join(__dirname, "poze_uploadate")));
+
 app.get("/favicon.ico", function (req, res) {
     res.sendFile(path.join(__dirname, "resurse/imagini/favicon/favicon.ico"));
 });
@@ -464,6 +480,13 @@ app.get("/stay/:id", function (req, res) {
     });
 });
 
+app.get("/stays-random", function (req, res) {
+    client.query("SELECT * FROM stays ORDER BY RANDOM() LIMIT 5", function (err, rez) {
+        if (err) { res.json([]); return; }
+        res.json(rez.rows);
+    });
+});
+
 app.get("/profil", function (req, res) {
     res.render("pagini/profil", {
 
@@ -478,6 +501,33 @@ app.get("/inregistrare", function (req, res) {
 
 app.post("/inregistrare", function (req, res) {
     var form = new formidable.IncomingForm();
+    var imagine_profil = null;
+    var username_temp = "";
+
+
+    // form.on("field", function (nume, fisier) {
+    //     if (fisier.originalFilename) {
+    //         var folder = path.join(__dirname, "poze_uploadate", username_temp);
+    //         if (!fs.existsSync(folder))
+    //             fs.mkdirSync(folder, { recursive: true });
+    //         fisier.filepath = path.join(folder, fisier.originalFilename);
+    //         imagine_profil = fisier.originalFilename;
+    //     }
+    // })
+
+    form.on("field", function (nume, val) {
+        if (nume == "username") username_temp = val;
+    });
+
+    form.on("fileBegin", function (nume, fisier) {
+        if (fisier.originalFilename) {
+            var folder = path.join(__dirname, "poze_uploadate", username_temp);
+            if (!fs.existsSync(folder))
+                fs.mkdirSync(folder, { recursive: true });
+            fisier.filepath = path.join(folder, fisier.originalFilename);
+            imagine_profil = fisier.originalFilename;
+        }
+    });
 
     form.parse(req, function (err, campuriText, campuriFisier) {
         console.log("Text fields:", campuriText);
@@ -508,7 +558,8 @@ app.post("/inregistrare", function (req, res) {
             email: campuriText.email[0],
             data_nastere: campuriText.birthdate[0],
             culoare_chat: campuriText.chatcolor[0],
-            telefon: campuriText.phone[0]
+            telefon: campuriText.phone[0],
+            imagine_profil: imagine_profil
 
         });
 
@@ -530,7 +581,148 @@ app.post("/inregistrare", function (req, res) {
     });
 });
 
+app.get("/cod_mail/:token/:username", function (req, res) {
+    let tokenPrimit = req.params.token;
+    let usernamePrimit = req.params.username.toLowerCase();
 
+    Utilizator.getUtilizDupaUsername(usernamePrimit, {}, function (u, obparam, eroare) {
+        if (eroare == -1 || eroare == -2) {
+            afisareEroare(res, 404);
+            return;
+        }
+
+
+        if (u.cod != tokenPrimit) {
+            afisareEroare(res, 403);
+            return;
+        }
+
+
+        AccesBD.getInstanta({ init: "local" }).update({
+            tabel: "utilizatori",
+            campuri: { confirmat_mail: true },
+            conditiiAnd: [`username='${usernamePrimit}'`]
+        }, function (err, rez) {
+            if (err) {
+                afisareEroare(res, 2);
+            } else {
+                res.render("pagini/confirmare");
+            }
+        });
+    });
+});
+app.get("/test-confirmare", function (req, res) {
+    res.render("pagini/confirmare");
+});
+
+app.post("/login", function (req, res) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, campuriText) {
+        Utilizator.getUtilizDupaUsername(campuriText.username[0], {},
+            function (u, obparam, eroare) {
+                if (eroare == -1 || !u) {
+                    req.session.errLogin = "Username inexistent!";
+                    res.redirect("/");
+                    return;
+                }
+                let parolaCriptata = Utilizator.criptareParola(campuriText.password[0]);
+                if (u.parola != parolaCriptata) {
+                    req.session.errLogin = "Parola gresita!";
+                    res.redirect("/");
+                    return;
+                }
+                if (!u.confirmat_mail) {
+                    req.session.errLogin = "Nu ai confirmat emailul!";
+                    res.redirect("/");
+                    return;
+                }
+
+                req.session.utilizator = u;
+                res.redirect("/");
+            }
+        );
+    });
+});
+
+app.get("/logout", function (req, res) {
+    req.session.destroy();
+    res.redirect("/");
+});
+
+app.get("/profil", function (req, res) {
+    if (!req.session.utilizator) {
+        afisareEroare(res, 403);
+        return;
+    }
+    res.render("pagini/profil", {
+        utilizator: req.session.utilizator
+    });
+});
+
+// profil page
+app.post("/profil", function (req, res) {
+    if (!req.session.utilizator) {
+        afisareEroare(res, 403);
+        return;
+    }
+
+    var form = new formidable.IncomingForm();
+    var poza_noua = null;
+
+    form.on("fileBegin", function (nume, fisier) {
+        if (fisier.originalFilename) {
+            var folder = path.join(__dirname, "poze_uploadate", req.session.utilizator.username);
+            if (!fs.existsSync(folder))
+                fs.mkdirSync(folder, { recursive: true });
+            fisier.filepath = path.join(folder, "poza.png");
+            poza_noua = "poza.png";
+        }
+    });
+
+    form.parse(req, function (err, campuriText) {
+        let parolaCriptata = Utilizator.criptareParola(campuriText.parola[0]);
+
+        if (parolaCriptata != req.session.utilizator.parola) {
+            res.render("pagini/profil", {
+                utilizator: req.session.utilizator,
+                err: "Wrong password!"
+            });
+            return;
+        }
+
+        let campuriUpdate = {
+            nume: campuriText.nume[0],
+            prenume: campuriText.prenume[0],
+            email: campuriText.email[0],
+            telefon: campuriText.telefon[0] || null,
+            culoare_chat: campuriText.culoare_chat[0],
+            data_nastere: campuriText.data_nastere[0] || null
+        };
+
+        if (poza_noua) campuriUpdate.imagine_profil = poza_noua;
+        if (campuriText.parola_noua[0]) {
+            campuriUpdate.parola = Utilizator.criptareParola(campuriText.parola_noua[0]);
+        }
+
+        AccesBD.getInstanta({ init: "local" }).update({
+            tabel: "utilizatori",
+            campuri: campuriUpdate,
+            conditiiAnd: [`username='${req.session.utilizator.username}'`]
+        }, function (err, rez) {
+            if (err) {
+                afisareEroare(res, 2);
+                return;
+            }
+            // update session
+            req.session.utilizator = { ...req.session.utilizator, ...campuriUpdate };
+
+            res.render("pagini/profil", {
+                utilizator: req.session.utilizator,
+                mesaj: "Profile updated successfully!"
+            });
+        });
+    });
+});
 app.get("/*pagina", function (req, res) {
     console.log("Cale pagina", req.url);
     if (req.url.startsWith("/resurse") && path.extname(req.url) == "") {

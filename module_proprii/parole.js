@@ -23,4 +23,17 @@ function genereazaToken(n) {
     return token;
 }
 
+
+function genereazaTokenMic(n) {
+    let sir = "abcdefghijklmnopqrstuvwxyz";
+    let token = "";
+    for (let i = 0; i < n; i++) {
+        token += sir[Math.floor(Math.random() * sir.length)];
+    }
+    return token;
+}
+
+
+module.exports.genereazaTokenMic = genereazaTokenMic;
+
 module.exports.genereazaToken = genereazaToken;

@@ -511,3 +511,27 @@ meter::-webkit-meter-bar {
 figcaption.no-counter::before {
     content: "" !important;
 }
+
+
+.user-welcome {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 30px;
+    background-color: #f5f8fc;
+    border-left: 4px solid #f0c040;
+}
+
+.user-welcome p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+}
+
+.user-welcome img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}

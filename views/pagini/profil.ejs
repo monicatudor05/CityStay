@@ -1,9 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("../head.ejs")%>
+
+<head>
+    <title>CityStay - Profil</title>
+    <%- include("../fragmente/head.ejs") %>
+</head>
+
+<body>
+    <%- include("../fragmente/header.ejs") %>
+
+        <main class="profil-main">
+            <div class="profil-container">
 
 
+                <div class="profil-sidebar">
+                    <% if (locals.utilizator && utilizator.imagine_profil) { %>
+                        <img src="/poze_uploadate/<%= utilizator.imagine_profil %>" alt="Profile picture"
+                            class="profil-poza">
+                        <% } else { %>
+                            <div class="profil-poza-placeholder">
+                                <span>
+                                    <%= locals.utilizator ? utilizator.nume.charAt(0).toUpperCase() : "?" %>
+                                </span>
+                            </div>
+                            <% } %>
+                                <h2 class="profil-username">@<%= locals.utilizator ? utilizator.username : "" %>
+                                </h2>
+                                <p class="profil-rol">
+                                    <%= locals.utilizator ? utilizator.rol : "" %>
+                                </p>
+                </div>
 
-    <%- include("../footer.ejs")%>
+
+                <div class="profil-form-wrapper">
+                    <h1>Edit Profile</h1>
+
+                    <% if (locals.mesaj) { %>
+                        <p class="profil-mesaj-ok">
+                            <%= mesaj %>
+                        </p>
+                        <% } %>
+                            <% if (locals.err) { %>
+                                <p class="profil-mesaj-err">
+                                    <%= err %>
+                                </p>
+                                <% } %>
+
+                                    <form action="/profil" method="POST" enctype="multipart/form-data"
+                                        class="profil-form">
+
+                                        <div class="profil-field">
+                                            <label for="username">Username</label>
+                                            <input type="text" id="username" name="username"
+                                                value="<%= locals.utilizator ? utilizator.username : '' %>" readonly
+                                                class="readonly-input">
+                                            <span class="field-hint">Username cannot be changed</span>
+                                        </div>
+
+                                        <div class="profil-field">
+                                            <label for="nume">Surname</label>
+                                            <input type="text" id="nume" name="nume"
+                                                value="<%= locals.utilizator ? utilizator.nume : '' %>" required>
+                                        </div>
+
+                                        <div class="profil-field">
+                                            <label for="prenume">First Name</label>
+                                            <input type="text" id="prenume" name="prenume"
+                                                value="<%= locals.utilizator ? utilizator.prenume : '' %>" required>
+                                        </div>
+
+                                        <div class="profil-field">
+                                            <label for="email">Email</label>
+                                            <input type="email" id="email" name="email"
+                                                value="<%= locals.utilizator ? utilizator.email : '' %>" required>
+                                        </div>
+
+                                        <div class="profil-field">
+                                            <label for="telefon">Phone</label>
+                                            <input type="tel" id="telefon" name="telefon"
+                                                value="<%= locals.utilizator ? (utilizator.telefon || '') : '' %>">
+                                        </div>
+
+                                        <div class="profil-field">
+                                            <label for="data_nastere">Birthdate</label>
+                                            <input type="date" id="data_nastere" name="data_nastere"
+                                                value="<%= locals.utilizator && utilizator.data_nastere ? new Date(utilizator.data_nastere).toISOString().split('T')[0] : '' %>">
+                                        </div>
+
+                                        <div class="profil-field">
+                                            <label for="culoare_chat">Chat Color</label>
+                                            <input type="color" id="culoare_chat" name="culoare_chat"
+                                                value="<%= locals.utilizator ? utilizator.culoare_chat : '#000000' %>">
+                                        </div>
+
+                                        <div class="profil-field">
+                                            <label for="poza">Profile Picture</label>
+                                            <input type="file" id="poza" name="poza" accept="image/*">
+                                            <span class="field-hint">Leave empty to keep current picture</span>
+                                        </div>
+
+                                        <div class="profil-field">
+                                            <label>Last visited page</label>
+                                            <p class="profil-cookie-info" id="ultima-pagina">Loading...</p>
+                                        </div>
+
+                                        <hr class="profil-divider">
+
+                                        <div class="profil-field">
+                                            <label for="parola_noua">New Password</label>
+                                            <input type="password" id="parola_noua" name="parola_noua"
+                                                placeholder="Leave empty to keep current password">
+                                        </div>
+
+                                        <div class="profil-field required-field">
+                                            <label for="parola">Current Password <span
+                                                    class="required-star">*</span></label>
+                                            <input type="password" id="parola" name="parola"
+                                                placeholder="Required to save changes" required>
+                                        </div>
+
+                                        <button type="submit" class="profil-btn">Save Changes</button>
+                                    </form>
+                </div>
+            </div>
+        </main>
+
+        <%- include("../fragmente/footer.ejs") %>
+
+            <style>
+                .profil-main {
+                    min-height: 80vh;
+                    padding: 40px 20px;
+                    background-color: #f0f4f8;
+                }
+
+                .profil-container {
+                    max-width: 900px;
+                    margin: 0 auto;
+                    display: flex;
+                    gap: 30px;
+                    align-items: flex-start;
+                }
+
+                .profil-sidebar {
+                    width: 220px;
+                    flex-shrink: 0;
+                    background: white;
+                    border-radius: 16px;
+                    padding: 30px 20px;
+                    text-align: center;
+                    box-shadow: 0 4px 20px rgba(26, 58, 92, 0.1);
+                    border-top: 4px solid #f0c040;
+                    position: sticky;
+                    top: 20px;
+                }
+
+                .profil-poza {
+                    width: 110px;
+                    height: 110px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 3px solid #f0c040;
+                    margin-bottom: 15px;
+                }
+
+                .profil-poza-placeholder {
+                    width: 110px;
+                    height: 110px;
+                    border-radius: 50%;
+                    background-color: #1a3a5c;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 15px;
+                    border: 3px solid #f0c040;
+                }
+
+                .profil-poza-placeholder span {
+                    font-size: 2.5rem;
+                    color: white;
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 700;
+                }
+
+                .profil-username {
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 1rem;
+                    color: #1a3a5c;
+                    margin: 0 0 5px;
+                }
+
+                .profil-rol {
+                    font-size: 0.85rem;
+                    color: #888;
+                    text-transform: capitalize;
+                    margin: 0;
+                }
+
+                .profil-form-wrapper {
+                    flex: 1;
+                    background: white;
+                    border-radius: 16px;
+                    padding: 35px;
+                    box-shadow: 0 4px 20px rgba(26, 58, 92, 0.1);
+                    border-top: 4px solid #f0c040;
+                }
+
+                .profil-form-wrapper h1 {
+                    font-family: 'Poppins', sans-serif;
+                    color: #1a3a5c;
+                    font-size: 1.6rem;
+                    margin-bottom: 25px;
+                }
+
+                .profil-mesaj-ok {
+                    background: #e0ffe0;
+                    border-left: 4px solid green;
+                    padding: 10px 15px;
+                    border-radius: 4px;
+                    margin-bottom: 15px;
+                    color: green;
+                }
+
+                .profil-mesaj-err {
+                    background: #ffe0e0;
+                    border-left: 4px solid red;
+                    padding: 10px 15px;
+                    border-radius: 4px;
+                    margin-bottom: 15px;
+                    color: red;
+                }
+
+                .profil-field {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    margin-bottom: 18px;
+                }
+
+                .profil-field label {
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: #1a3a5c;
+                }
+
+                .profil-field input[type="text"],
+                .profil-field input[type="email"],
+                .profil-field input[type="password"],
+                .profil-field input[type="tel"],
+                .profil-field input[type="date"] {
+                    padding: 10px 14px;
+                    border: 1.5px solid #c0d0e0;
+                    border-radius: 8px;
+                    font-size: 14px;
+                    font-family: 'Poppins', sans-serif;
+                    color: #1a3a5c;
+                    transition: border-color 0.2s;
+                }
+
+                .profil-field input:focus {
+                    outline: none;
+                    border-color: #f0c040;
+                    box-shadow: 0 0 0 3px rgba(240, 192, 64, 0.2);
+                }
+
+                .readonly-input {
+                    background-color: #f0f4f8 !important;
+                    color: #888 !important;
+                    cursor: not-allowed;
+                }
+
+                .field-hint {
+                    font-size: 11px;
+                    color: #aaa;
+                }
+
+                .required-field {
+                    background: #fffbee;
+                    padding: 15px;
+                    border-radius: 8px;
+                    border: 1.5px dashed #f0c040;
+                }
+
+                .required-star {
+                    color: red;
+                }
+
+                .profil-divider {
+                    border: none;
+                    border-top: 1px solid #e0e8f0;
+                    margin: 25px 0;
+                }
+
+                .profil-cookie-info {
+                    font-size: 14px;
+                    color: #1a3a5c;
+                    background: #f0f4f8;
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                    margin: 0;
+                }
+
+                .profil-btn {
+                    width: 100%;
+                    padding: 13px;
+                    background-color: #f0c040;
+                    color: #1a3a5c;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 15px;
+                    font-weight: 700;
+                    font-family: 'Poppins', sans-serif;
+                    cursor: pointer;
+                    transition: background-color 0.2s, transform 0.1s;
+                    box-shadow: 0 4px 10px rgba(240, 192, 64, 0.4);
+                    margin-top: 10px;
+                }
+
+                .profil-btn:hover {
+                    background-color: #d4a800;
+                    transform: translateY(-1px);
+                }
+
+                @media (max-width: 768px) {
+                    .profil-container {
+                        flex-direction: column;
+                    }
+
+                    .profil-sidebar {
+                        width: 100%;
+                        position: static;
+                    }
+                }
+            </style>
+
+            <script>
+                window.addEventListener("load", function () {
+                    let ultimaPagina = getCookie("ultimaPagina");
+                    document.getElementById("ultima-pagina").textContent =
+                        ultimaPagina ? ultimaPagina : "No page visited yet";
+                });
+            </script>
+
+</body>
 
 </html>
